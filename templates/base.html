@@ -1,0 +1,104 @@
+{%load static %}
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+    <meta charset="UTF-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title>News Site Layout</title>  
+    <link href="{% static 'css/direction.css'%}" rel="stylesheet">
+    <!-- AOS CSS -->  
+    <link href="{% static 'css/aos.css'%}" rel="stylesheet">
+    <link href="{% static 'css/global.css'%}" rel="stylesheet">
+
+    <script src="{% static 'js/tailwind.js'%}"></script>  
+   
+</head>  
+<body class="relative font-sans " > 
+    
+
+{% block context %}
+
+{% endblock context %}
+
+
+
+<!-- Section4  -->
+<footer class="bg-black text-white p-5">
+    <div class="max-w-[100%] flex flex-wrap justify-between">
+        <!-- Services Section -->
+        <div class="flex-1 min-w-[200px] mb-5">
+            <h3 class="text-red-500 border-b border-red-500 pb-2 mb-4">SERVICES</h3>
+            <ul>
+                <li class="mb-2"><a href="#" class="hover:underline">Consulting</a></li>
+                <li class="mb-2"><a href="#" class="hover:underline">Customer Service</a></li>
+                <li class="mb-2"><a href="#" class="hover:underline">Innovation</a></li>
+                <li class="mb-2"><a href="#" class="hover:underline">Reservation</a></li>
+                <li class="mb-2"><a href="#" class="hover:underline">Management</a></li>
+                <li class="mb-2"><a href="#" class="hover:underline">Repair</a></li>
+                <li class="mb-2"><a href="#" class="hover:underline">Hosting</a></li>
+            </ul>
+        </div>
+
+        <!-- Portfolio Section -->
+        <div class="flex-1 min-w-[200px] mb-5">
+            <h3 class="text-red-500 border-b border-red-500 pb-2 mb-4">PORTFOLIO</h3>
+            <ul>
+                <li class="mb-2"><a href="#" class="hover:underline">Business & Finance</a></li>
+                <li class="mb-2"><a href="#" class="hover:underline">Coaching & Consulting</a></li>
+                <li class="mb-2"><a href="#" class="hover:underline">Creative Portfolio</a></li>
+                <li class="mb-2"><a href="#" class="hover:underline">Food & Restaurant</a></li>
+                <li class="mb-2"><a href="#" class="hover:underline">Medical & Healthcare</a></li>
+                <li class="mb-2"><a href="#" class="hover:underline">Real Estate</a></li>
+                <li class="mb-2"><a href="#" class="hover:underline">Travel & Tourism</a></li>
+            </ul>
+        </div>
+
+        <!-- Contact Section -->
+        <div class="flex-1 min-w-[200px] mb-5">
+            <h3 class="text-red-500 border-b border-red-500 pb-2 mb-4">CONTACT US</h3>
+            <p>Call us: +27 (0)41 365 4919</p>
+            <p>support@onlineinnovations.com</p>
+            <p>42 Pickering Street<br>Newton Park<br>Port Elizabeth<br>6045</p>
+        </div>
+
+        <!-- Stay Connected Section -->
+        <div class="flex-1 min-w-[200px] mb-5">
+            <h3 class="text-red-500 border-b border-red-500 pb-2 mb-4">STAY CONNECTED</h3>
+            <div class="flex space-x-3 text-2xl mb-5">
+                <a href="#" aria-label="Facebook" class="hover:underline">F</a>
+                <a href="#" aria-label="Twitter" class="hover:underline">T</a>
+                <a href="#" aria-label="LinkedIn" class="hover:underline">L</a>
+                <a href="#" aria-label="Instagram" class="hover:underline">I</a>
+                <a href="#" aria-label="Pinterest" class="hover:underline">P</a>
+                <a href="#" aria-label="YouTube" class="hover:underline">Y</a>
+            </div>
+            <h3 class="text-red-500 border-b border-red-500 pb-2 mb-4">LISTED ON</h3>
+            <ul>
+                <li class="mb-2"><a href="#" class="hover:underline">Freelancer Web Design Firms</a></li>
+                <li class="mb-2"><a href="#" class="hover:underline">South African Web Design Companies</a></li>
+                <li class="mb-2"><a href="#" class="hover:underline">Local SA Web Companies</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="max-w-[100%] mx-auto mt-5">
+        <div class="flex-1 min-w-[200px] mb-5">
+            <h3 class="text-red-500 border-b border-red-500 pb-2 mb-4">DOMAIN REGISTRATION SUPPORT</h3>
+            <p>Call: +27 (0)41 365 4919</p>
+            <p>info@onlineinnovations.com</p>
+        </div>
+    </div>
+
+    <!-- Copyright Section -->
+    <div class="text-center mt-5 border-t border-gray-700 pt-5">
+        <p>&copy; This page Created by AliZamanian | <a href="#" class="hover:underline">Privacy</a></p>
+    </div>
+</footer>
+
+
+
+<script  src="{% static 'js/menu.js '%}"></script>  
+<script  src="{% static 'js/aos.js' %}"></script>  
+  <script src="{% static 'js/global.js' %}"></script>  
+</body>  
+</html>
