@@ -17,14 +17,24 @@ class Tag(models.Model):
 
 
 class New(models.Model):  
+
+    NEWS_TYPE_CHOICES = [
+        ('BREAKING', 'Breaking News'),  # اخبار فوری
+        ('DEVELOPING', 'Developing Story'),  # خبر در حال تکامل
+        ('URGENT', 'Urgent'),  # فوری
+        ('LIVE', 'Live Updates'),  # به‌روزرسانی‌های زنده
+        ('EXCLUSIVE', 'Exclusive'),  # انحصاری
+    ]
+
     journalist = models.ForeignKey(User, on_delete=models.CASCADE)  
-    image = models.ImageField(upload_to="News/images/", default="News/images/default.jpg")  
+    image = models.ImageField(upload_to="news/images/", default="news/images/default.svg")  
     brief_message = models.CharField(max_length=50, null=True, blank=True)  
     title = models.CharField(max_length=255)  
     description = models.TextField()  
     categories = models.ManyToManyField(Category)  
     tags = models.ManyToManyField(Tag)  
-    slug = models.SlugField(unique=True, null=False)  
+    slug = models.SlugField(unique=True, null=False) 
+    newstype = models.CharField(max_length=20, choices=NEWS_TYPE_CHOICES,null=True, blank=True) 
     active = models.BooleanField(default=False)  
     created_at = models.DateTimeField(auto_now_add=True)  
     updated_at = models.DateTimeField(auto_now=True)  

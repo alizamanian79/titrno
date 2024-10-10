@@ -1,0 +1,43 @@
+{% load static %}  
+
+<link rel="stylesheet" type="text/css" href="{% static 'css/toastify.css' %}">  
+<script src="{% static 'js/toastify.js' %}"></script>  
+
+{% if messages %}  
+    {% for message in messages %}  
+        <script>  
+            Toastify({  
+                text: `{{ message|safe }}`,  
+                duration: 3000,  
+                destination: "https://github.com/apvarun/toastify-js",  
+                newWindow: true,  
+                close: true,  
+                gravity: "top", // `top` or `bottom`  
+                position: "right", // `left`, `center` or `right`  
+                stopOnFocus: true, // Prevents dismissing of toast on hover  
+                style: {  
+                    background: "{% if message.tags == 'error' %} #FF5733 {% elif message.tags == 'warning' %} #ffc341  {% else %} linear-gradient(to right, #00b09b, #96c93d) {% endif %}",  
+                },  
+                onClick: function() {} // Callback after click  
+            }).showToast();  
+        </script>  
+    {% endfor %}  
+{% endif %}  
+
+{% if form.errors %}  
+<div class="alert alert-error">  
+    <h4>Please fix the following errors</h4>  
+    <ul>  
+        {% for field in form %}  
+            {% if field.errors %}  
+                {% for error in field.errors %}  
+                    <li><a href="#id_{{ field.name }}" class="error">{{ error|escape }}</a></li>  
+                {% endfor %}  
+            {% endif %}  
+        {% endfor %}  
+    </ul>  
+    {% if form.non_field_errors %}  
+        {{ form.non_field_errors }}  
+    {% endif %}  
+</div>  
+{% endif %}

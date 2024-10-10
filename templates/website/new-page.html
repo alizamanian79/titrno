@@ -1,53 +1,27 @@
 {% extends "base.html" %}
 {% load static %}
 {% block context %}
-   <!-- Menu -->
-   <div class="fixed top-0 z-[10] w-[100%] h-[auto] " >
 
-    <header class="flex justify-between items-center p-4 bg-gray-100 shadow-md transition delay-75">
-         <div class="text-xl font-bold text-gray-800">NFLUENCE</div>
-         <nav class="hidden md:flex space-x-4 ">
-             <a href="#" class="hover:text-[#EF4444] text-gray-800 uppercase text-sm font-bold">Services</a>
-             <a href="#" class="hover:text-[#EF4444] text-gray-800 uppercase text-sm  font-bold">Workshops</a>
-             <a href="#" class="hover:text-[#EF4444] text-gray-800 uppercase text-sm  font-bold">Resources</a>
-       </nav>
-         <button class="md:hidden text-2xl" id="menu-toggle">
-             <!-- Hamburger icon -->
-             <span id="hamburger-icon" class="block">☰</span>
-             <!-- Close icon -->
-             <span id="close-icon" class="hidden">×</span>
-         </button>
-     </header>
- 
-     <nav class="hidden flex-wrap items-center bg-gray-100 p-4 md:hidden  h-[auto]" id="mobile-nav">
-         <a href="#" class="hover:text-[#EF4444] text-gray-800 uppercase text-sm  h">Services</a>
-         <br> 
-         <a href="#" class="hover:text-[#EF4444] text-gray-800 uppercase text-sm  h">Workshops</a>
-         <br> <a href="#" class="hover:text-[#EF4444] text-gray-800 uppercase text-sm  h">Resources</a>
-     </nav>
- 
- 
-     </div>
-  
-    
-     <!-- Menu -->
-    <header class="bg-white shadow mt-[3rem]"></header>
 
-    <section class="container mx-auto px-4 py-8">
+
+   <!---->
+ 
+
+
+    <section class="container mx-auto px-4 py-8  mt-[3rem]">
       <div class="grid grid-cols-1 lg:grid-cols-3  md:grid-cols-1 gap-8 relative ">
         <div class="md:col-span-2">
           <article>
             <img
-              src="https://via.placeholder.com/800x400"
+              src="{{new.image.url}}"
               alt="Article image"
               class="w-full h-[50vh] object-cover mb-4"
             />
             <h2 class="text-3xl font-bold mb-2">
-              The Shy Person's Guide to Winning Friends and Influencing People
+              {{new.title}}
             </h2>
             <p class="text-gray-600 mb-4">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              {{new.description}}
             </p>
             <div class="flex items-center text-sm text-gray-500">
               <img
@@ -55,11 +29,11 @@
                 alt="Author"
                 class="w-10 h-10 rounded-full mr-2"
               />
-              <span>John Doe</span>
+              <span>{{new.journalist.username}}</span>
               <span class="mx-2">•</span>
-              <span>July 26, 2023</span>
-              <span class="mx-2">•</span>
-              <span>3 mins read</span>
+              <span>{{new.updated_at}}</span>
+              {% comment %} <span class="mx-2">•</span> {% endcomment %}
+              {% comment %} <span>3 mins read</span> {% endcomment %}
             </div>
           </article>
         </div>
@@ -112,62 +86,32 @@
       </div>
     </section>
 
-    <h2 class="text-4xl font-bold mb-4 px-5">Similar news</h2>
+<!---->
+{% if similarNews %}
+    <h2 class="text-3xl font-bold mb-2 px-5">Similar news</h2> 
+    <h2 class="text-1xl  mb-4 px-5">in this categories</h2> 
     <div
       class="w-[100%] md:w-[100%] lg:w-[33.33] p-5
        grid  gap-2 mb-5 md:grid-cols-3 lg:grid-cols-4 grid-cols-1"
     >
-      <div class="border border-gray-300 p-5">
+ 
+    {% for item in similarNews %}
+      <a href="{% url 'website:newpage' slug=item.slug %}">
+        <div href="google.com" class="border border-gray-300 p-5">
         <img
-          src="https://v0.dev/placeholder.svg"
-          alt="Cristiano Ronaldo"
+          src="{{item.image.url}}"
+          
           class="w-full h-auto mb-2"
         />
         <h3 class="text-lg font-semibold mb-2">
-          Cristiano Ronaldo breaks the Champions League goal record
+          {{item.title|truncatewords:20}}
         </h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-      </div>
-      <div class="border border-gray-300 p-5">
-        <img
-          src="https://v0.dev/placeholder.svg"
-          alt="Protest"
-          class="w-full h-auto mb-2"
-        />
-        <h3 class="text-lg font-semibold mb-2">
-          Protests erupt over new climate change policies
-        </h3>
-        <p>
-          Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-        </p>
-      </div>
-      <div class="border border-gray-300 p-5">
-        <img
-          src="https://v0.dev/placeholder.svg"
-          alt="Automotive Revolution"
-          class="w-full h-auto mb-2"
-        />
-        <h3 class="text-lg font-semibold mb-2">
-          Why the Next President Will Face an Automotive Revolution
-        </h3>
-        <p>
-          Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.
-        </p>
-      </div>
-      <div class="border border-gray-300 p-5">
-        <img
-          src="https://v0.dev/placeholder.svg"
-          alt="Fashion Show"
-          class="w-full h-auto mb-2"
-        />
-        <h3 class="text-lg font-semibold mb-2">
-          Highlights from the 2015 Victoria's Secret Fashion Show
-        </h3>
-        <p>
-          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
-          dolore.
-        </p>
-      </div>
+        <p>{{item.description|truncatewords:10}}</p>
+      </div></a>
+{% endfor %}
+
+{% endif %}
+
     </div>
 
 
@@ -217,6 +161,7 @@
         </form>
     </div>
 </div>
+
 
     
 {% endblock context %}
