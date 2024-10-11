@@ -39,7 +39,8 @@ class New(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)  
     updated_at = models.DateTimeField(auto_now=True)  
 
-    def save(self, *args, **kwargs):  
+    def save(self, *args, **kwargs): 
+        self.slug=slugify(self.title) 
         if not self.slug:  
             self.slug = slugify(self.title)  
         super().save(*args, **kwargs)  
@@ -49,3 +50,23 @@ class New(models.Model):
 
     class Meta:  
         verbose_name_plural = "News"
+
+
+
+
+
+
+class Contact(models.Model):
+    firstName=models.CharField(max_length=255)
+    lastName=models.CharField(max_length=255)
+    email=models.EmailField(max_length=255)
+    description=models.TextField()
+
+    active=models.BooleanField(default=False,null=True)
+    created_at=models.DateTimeField(auto_now_add=True,null=True)
+
+    def __str__(self):  
+        return self.email  
+
+    class Meta:  
+        verbose_name_plural = "Contacts"
