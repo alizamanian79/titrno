@@ -1,0 +1,23 @@
+
+{% load humanizelib %}
+{% load website_tags %}
+
+<h3 class="text-xl font-bold mb-4">Latest News</h3>
+<ul class="">
+  {% for new in News %}
+  <a href="{% url 'website:newpage' slug=new.slug %}">
+  <li class="flex items-center md:mt-2">
+    <img
+      src="{{new.image.url}}"
+      alt="News thumbnail"
+      class="w-20 h-20 object-cover mr-4"
+    />
+    <div>
+      <h4 class="font-semibold">
+        {{new.title}}
+      </h4>
+      <p class="text-sm text-gray-500">publish in {{new.created_at }}</p>
+    </div>
+  </li></a>{% endfor %}
+  <!-- Add more news items here -->
+</ul>

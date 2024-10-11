@@ -1,17 +1,44 @@
 {% extends "base.html" %}
 {% load static %}
 {% block context %}
-
+{% load website_tags %}
 
 
    <!---->
  
 
 
-    <section class="container mx-auto px-4 py-8  mt-[3rem]">
-      <div class="grid grid-cols-1 lg:grid-cols-3  md:grid-cols-1 gap-8 relative ">
-        <div class="md:col-span-2">
-          <article>
+    <section class="container mx-auto  py-8  mt-[3rem] ">
+      <div class="grid grid-cols-1 lg:grid-cols-3  md:grid-cols-2 md:px-5 gap-8 relative">
+        <div class="md:col-span-2 ">
+          
+        
+          {% if searchNews %}
+          
+            <h2 class="text-3xl font-bold mb-2 px-5">Search Result</h2> <br/>
+            {% comment %} <h2 class="text-1xl  mb-4 px-5">in this categories</h2>  {% endcomment %}
+            <div
+              class="w-[100%] md:w-[100%] lg:w-[33.33] p-5
+               grid  gap-2 mb-5 md:grid-cols-3 lg:grid-cols-4 grid-cols-1"
+            >
+         
+            {% for item in searchNews %}
+              <a href="{% url 'website:newpage' slug=item.slug %}" class="flex">
+                <div href="google.com" class="border border-gray-300 p-5">
+                <img
+                  src="{{item.image.url}}"
+                  
+                  class="w-full h-auto mb-2"
+                />
+                <h3 class="text-lg font-semibold mb-2">
+                  {{item.title|truncatewords:20}}
+                </h3>
+                <p>{{item.description|truncatewords:10}}</p>
+              </div></a>
+        {% endfor %}</div>
+        
+          {% else %}
+            <article>
             <img
               src="{{new.image.url}}"
               alt="Article image"
@@ -32,43 +59,19 @@
               <span>{{new.journalist.username}}</span>
               <span class="mx-2">•</span>
               <span>{{new.updated_at}}</span>
-              {% comment %} <span class="mx-2">•</span> {% endcomment %}
-              {% comment %} <span>3 mins read</span> {% endcomment %}
+            
             </div>
           </article>
+
+          {% endif %}
+
+
         </div>
 
         <div>
-          <section class="mb-8">
-            <div class="flex text-[black] ml-2px flex flex-col h-auto mb-4">
-              <h3 class="text-xl font-bold mb-4 w-100">Search News</h3>
-              <input
-                class="bg-[transparent] border-solid border-2 border-[#d1d5db] py-2 pl-2 rounded-[5px] outline-none"
-                type=""
-                value=""
-                name=""
-                placeholder="Searching news title or any detail on news ..."
-              />
-            </div>
 
-            <h3 class="text-xl font-bold mb-4">Latest News</h3>
-            <ul class="">
-              <li class="flex items-center">
-                <img
-                  src="https://via.placeholder.com/80"
-                  alt="News thumbnail"
-                  class="w-20 h-20 object-cover mr-4"
-                />
-                <div>
-                  <h4 class="font-semibold">
-                    Those who have created peace, are the world better
-                  </h4>
-                  <p class="text-sm text-gray-500">January 6, 2023</p>
-                </div>
-              </li>
-              <!-- Add more news items here -->
-            </ul>
-          </section>
+       {% include "website/includes/slider.html" %}
+         
           <section>
             <h3 class="text-xl font-bold mb-4">Most Popular</h3>
             <ul class="space-y-4">
@@ -87,11 +90,14 @@
     </section>
 
 <!---->
+
+
 {% if similarNews %}
+<div class="flex flex-col w-[100%]  p-3" data-aos="fade-up">
     <h2 class="text-3xl font-bold mb-2 px-5">Similar news</h2> 
     <h2 class="text-1xl  mb-4 px-5">in this categories</h2> 
     <div
-      class="w-[100%] md:w-[100%] lg:w-[33.33] p-5
+      class="w-[100%] md:w-[100%] lg:w-[100%] p-5
        grid  gap-2 mb-5 md:grid-cols-3 lg:grid-cols-4 grid-cols-1"
     >
  
@@ -109,10 +115,15 @@
         <p>{{item.description|truncatewords:10}}</p>
       </div></a>
 {% endfor %}
-
+</div>
 {% endif %}
 
-    </div>
+
+
+
+
+
+</div>
 
 
 <!--Contact us-->
@@ -161,7 +172,6 @@
         </form>
     </div>
 </div>
-
 
     
 {% endblock context %}
