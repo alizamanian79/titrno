@@ -9,11 +9,19 @@ from django.http import Http404
 
 # Create your views here.
 def index_view(request):
-    
+    if request.method=="POST":
+        form = ContactForm(request.POST)  
+        if form.is_valid():  
+            form.save()  
+            messages.success(request, "Your message has been sent successfully.")  
+            return redirect("/")  
+        else:  
+            messages.error(request, "There was an error sending your message.")
 
-    return render(request, 'website/index.html')
-
-
+    form = ContactForm()
+    return render(request, 'website/index.html',{
+        "form": form,
+    })
 
 
 def newpage_view(request, slug=None):  
