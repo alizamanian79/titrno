@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django_humanize',
-    'website',
+    'website','accounts'
 ]
 
 MIDDLEWARE = [
@@ -133,5 +133,6 @@ MEDIA_ROOT = BASE_DIR/'media/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # Page Not found
-DEBUG = False
-ALLOWED_HOSTS = ['*']
+# DEBUG = False
+# ALLOWED_HOSTS = ['*']
+
