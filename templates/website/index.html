@@ -1,19 +1,32 @@
 {% extends "base.html" %}
 {% load static %}
 {% block context %}
-   
 
 
-<!-- Header Section -->  
-<div class="max-w-[100%] mx-auto h-[auto] py-2 flex flex-col mt-[3rem] bg-[black]">  
-        
-        <div class="w-[100%] flex h-auto justify-between bg-[black] text-[white] p-5 "  >  
-            <p class=" w-[auto] md:w-[auto]  lg:w-[8%]">Breaking News:</p>
-            <marquee direction="right" class=" w-[64%] md:w-[84%] lg:w-[92%] ">This text will scroll from right to left deded deded Designer fashion show kicks off Variety Week</marquee>
-        </div>  
+
+<div class="max-w-[100%] mx-auto h-[auto] py-2
+ flex flex-col mt-[3rem]  justify-center items-center">  
+
+       <!-- News Bar Section -->   
+        <div class="w-[100%] flex h-auto 
+        justify-between bg-[red] text-[white] p-5 mb-[0.5rem]"  >  
+            <p class=" w-[auto] md:w-[auto] lg:w-[8%]">Breaking News:</p>
+            <marquee direction="right" class=" w-[auto] md:w-[84%] lg:w-[92%] flex bg-[red] ">
+            
+            <p class="flex">
+                {% for item in breakingnews %}
+                 <a href="{% url 'website:newpage' slug=item.slug %}">. {{item.brief_message}}</a>
+                 {% endfor %}
+            </p>
+           
+        </marquee>
+         </div>  
+    <!-- News Bar Section -->
+
+
 
         <!-- Featured Articles Section -->  
-        <div class="flex w-[100%] px-5 justify-between flex-wrap jusify-around">  
+        <div class="flex w-[100%] px-5 justify-between flex-wrap jusify-around bg-[black]">  
             <!-- Main Article -->  
             <div class="flex w-[100%] md:w-[65%] max-h-[570px] relative mb-3 md:mb-0">  
                 <img src="./default.svg" alt="Woman in fashionable outfit" class="w-full h-[100%] object-cover">  
@@ -52,61 +65,37 @@
             
         </div>
         
-        <!-- News -->
+<!-- News -->
          <div class="w-[100%] md:w-[55%] lg:w-[70%]
            grid  gap-2 mb-5 lg:grid-cols-3 md:grid-cols-2 grid-cols-1" style="direction:ltr">  
              
             
-        <div class="border border-gray-300 p-5 ">  
-                  <img src="./default.svg" alt="Cristiano Ronaldo" class="w-full h-auto mb-2" />  
-                  <h3 class="text-lg font-semibold mb-2">Cristiano Ronaldo breaks the Champions League goal record</h3>  
-                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>  
-         </div>  
+        {% for new in news %}
+        <a href="{% url 'website:newpage' slug=new.slug %}"><div class="border border-gray-300 p-5 ">  
+                  <img src="{{ new.image.url }}" alt="Cristiano Ronaldo" class="w-full h-auto mb-2" />  
+                  <h3 class="text-lg font-semibold mb-2">{{new.title}}</h3>  
+                  <p>{{new.brief_message}}</p>  
+         </div></a>  
+ {% endfor %}
+
+        
 
 
-         <div class="border border-gray-300 p-5 ">  
-            <img src="./default.svg" alt="Cristiano Ronaldo" class="w-full h-auto mb-2" />  
-            <h3 class="text-lg font-semibold mb-2">Cristiano Ronaldo breaks the Champions League goal record</h3>  
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>  
-   
-   
-   
-        </div> 
-   <div class="border border-gray-300 p-5 ">  
-    <img src="./default.svg" alt="Cristiano Ronaldo" class="w-full h-auto mb-2" />  
-    <h3 class="text-lg font-semibold mb-2">Cristiano Ronaldo breaks the Champions League goal record</h3>  
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>  
-</div> 
-<div class="border border-gray-300 p-5 ">  
-    <img src="./default.svg" alt="Cristiano Ronaldo" class="w-full h-auto mb-2" />  
-    <h3 class="text-lg font-semibold mb-2">Cristiano Ronaldo breaks the Champions League goal record</h3>  
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>  
-</div> 
-<div class="border border-gray-300 p-5 ">  
-    <img src="./default.svg" alt="Cristiano Ronaldo" class="w-full h-auto mb-2" />  
-    <h3 class="text-lg font-semibold mb-2">Cristiano Ronaldo breaks the Champions League goal record</h3>  
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>  
-</div> 
-<div class="border border-gray-300 p-5 ">  
-    <img src="./default.svg" alt="Cristiano Ronaldo" class="w-full h-auto mb-2" />  
-    <h3 class="text-lg font-semibold mb-2">Cristiano Ronaldo breaks the Champions League goal record</h3>  
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>  
-</div> 
-<div class="border border-gray-300 p-5 ">  
-    <img src="./default.svg" alt="Cristiano Ronaldo" class="w-full h-auto mb-2" />  
-    <h3 class="text-lg font-semibold mb-2">Cristiano Ronaldo breaks the Champions League goal record</h3>  
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>  
-</div> 
-<div class="border border-gray-300 p-5 ">  
-    <img src="./default.svg" alt="Cristiano Ronaldo" class="w-full h-auto mb-2" />  
-    <h3 class="text-lg font-semibold mb-2">Cristiano Ronaldo breaks the Champions League goal record</h3>  
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>  
-</div> 
-      
+       
+
+
 </div>  
+
+
+
+
 </section> 
 
-<!-- Section3  -->
 {% include 'contact.html' %}
+
+
+
+
+
 
 {% endblock context %}

@@ -33,14 +33,13 @@ class New(models.Model):
     description = models.TextField()  
     categories = models.ManyToManyField(Category)  
     tags = models.ManyToManyField(Tag)  
-    slug = models.SlugField(unique=True, null=False) 
+    slug = models.SlugField(unique=True, allow_unicode=True,null=True,blank=True)   
     newstype = models.CharField(max_length=20, choices=NEWS_TYPE_CHOICES,null=True, blank=True) 
     active = models.BooleanField(default=False)  
     created_at = models.DateTimeField(auto_now_add=True)  
     updated_at = models.DateTimeField(auto_now=True)  
 
     def save(self, *args, **kwargs): 
-        self.slug=slugify(self.title) 
         if not self.slug:  
             self.slug = slugify(self.title)  
         super().save(*args, **kwargs)  
