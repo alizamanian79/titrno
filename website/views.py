@@ -19,13 +19,13 @@ def index_view(request):
         new = New.objects.filter(Q(title__icontains=q) | Q(description__icontains=q) | Q(slug__icontains=q))  
 
 
-    
 
     form = ContactForm()
     return render(request, 'website/index.html',{
         "form": form,
         "news": new,
-        "breakingnews":BreakingNews()
+        "breakingnews":BreakingNews(),
+        "images":breakingNewsImages(),
     })
 def newpage_view(request, slug=None):  
 
@@ -76,3 +76,19 @@ def contactus(request):
 def BreakingNews():
     breaking_news = New.objects.filter(active=True,newstype='BREAKING').order_by('created_at')
     return breaking_news
+
+
+
+
+
+def breakingNewsImages():
+    getNews=New.objects.filter(active=True,newstype='BREAKING').order_by('-created_at')
+    getImages=[]
+    for new in getNews:
+        getImages.append(
+            {"imagesrc":f"{new.image.url}",
+             "message":f"{new.brief_message}",
+             "link":f"{new.slug}"}
+             )
+        
+    return getImages

@@ -25,7 +25,7 @@
         <div class="flex w-[100%] px-5 justify-between flex-wrap jusify-around bg-[black]">  
             <!-- Main Article -->  
             <div class="flex w-[100%] md:w-[65%] max-h-[570px] relative mb-3 md:mb-0">  
-                <img src="./default.svg" alt="Woman in fashionable outfit" class="w-full h-[100%] object-cover">  
+                <img src="./default.svg" id="img-breaking" alt="Woman in fashionable outfit" class="w-full h-[100%] object-cover">  
                 <div class="absolute bottom-0 left-0 right-0 bg-[#EF4444] text-white p-5">  
                     <h2 class="text-xl font-bold">WordPress News Magazine Charts the Most Fashionable New York Women in 2018</h2>  
                 </div>  
@@ -88,9 +88,18 @@
 
 {% include 'contact.html' %}
 
-<!-- Correct MIME type for JavaScript -->
+<p id="testman">
+    nodeeeeeeeee
+    </p>
+
 <script type="text/javascript">
-    console.log("Hi");
+    let img=document.getElementById('img-breaking');
+    let textTest=document.getElementById('testman');
+    let test={{ images|safe }}
+    console.log(test);
+
+   img.src= test[0].imagesrc
+
 </script>
 
 {% endblock content %}
