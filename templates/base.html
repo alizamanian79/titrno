@@ -10,10 +10,13 @@
     <!-- AOS CSS -->  
     <link href="{% static 'css/aos.css'%}" rel="stylesheet">
     <link href="{% static 'css/global.css'%}" rel="stylesheet">
+    
     <script src="{% static 'js/tailwind.js'%}"></script>  
    
 </head>  
 <body class="relative font-sans " > 
+
+
      <!-- Menu -->
      <div class="fixed top-0 z-[10] w-[100%] h-[auto] " >
 
@@ -46,9 +49,9 @@
          <!-- Menu -->  
 {% include "message.html" %}
 
-{% block context %}
+{% block content %}
 
-{% endblock context %}
+{% endblock content %}
 
 
 

@@ -1,8 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
-{% block context %}
-
-
+{% block content %}
 
 <div class="max-w-[100%] mx-auto h-[auto] py-2
  flex flex-col mt-[3rem]  justify-center items-center">  
@@ -10,7 +8,7 @@
        <!-- News Bar Section -->   
         <div class="w-[100%] flex h-auto 
         justify-between bg-[black] text-[white] p-5 mb-[0.2rem]"  >  
-            <p class=" w-[auto] md:w-[auto] lg:w-[8%]">Breaking News:</p>
+            <p class="w-[auto] md:w-[auto] lg:w-[8%] font-['yekanBakhtBold']">خبر فوری:</p>
             <marquee direction="right" class=" w-[auto] md:w-[84%] lg:w-[92%] flex  ">
             
             <p class="flex">
@@ -22,8 +20,6 @@
         </marquee>
          </div>  
     <!-- News Bar Section -->
-
-
 
         <!-- Featured Articles Section -->  
         <div class="flex w-[100%] px-5 justify-between flex-wrap jusify-around bg-[black]">  
@@ -88,8 +84,13 @@
 
 
 
-
 </section> 
 
 {% include 'contact.html' %}
-{% endblock context %}
+
+<!-- Correct MIME type for JavaScript -->
+<script type="text/javascript">
+    console.log("Hi");
+</script>
+
+{% endblock content %}
