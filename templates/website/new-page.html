@@ -35,7 +35,7 @@
                 </h3>
                 <p>{{item.description|truncatewords:10}}</p>
               </div></a>
-        {% endfor %}</div>
+          {% endfor %}</div>
         
           {% else %}
             <article>
@@ -72,7 +72,7 @@
 
        {% include "website/includes/slidebar.html" %}
          
-          <section>
+          {% comment %} <section>
             <h3 class="text-xl font-bold mb-4">Most Popular</h3>
             <ul class="space-y-4">
               <li>
@@ -84,7 +84,9 @@
               </li>
               <!-- Add more popular items here -->
             </ul>
-          </section>
+          </section> {% endcomment %}
+
+
         </div>
       </div>
     </section>
@@ -121,7 +123,6 @@
 
 {% else %}  
 
-<p>s</p>  
 
 {% endif %}
 
@@ -132,7 +133,5 @@
 
 </div>
 
-{% include 'contact.html' %}
-
-    
+{% include 'contact.html' %} 
 {% endblock context %}
