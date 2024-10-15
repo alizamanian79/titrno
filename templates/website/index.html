@@ -25,9 +25,9 @@
         <div class="flex w-[100%] px-5 justify-between flex-wrap jusify-around bg-[black]">  
             <!-- Main Article -->  
             <div class="flex w-[100%] md:w-[65%] max-h-[570px] relative mb-3 md:mb-0">  
-                <img src="./default.svg" id="img-breaking" alt="Woman in fashionable outfit" class="w-full h-[100%] object-cover">  
+                <img src="./default.svg" id="firstSlider" alt="Woman in fashionable outfit" class="w-full h-[100%] object-cover">  
                 <div class="absolute bottom-0 left-0 right-0 bg-[#EF4444] text-white p-5">  
-                    <h2 class="text-xl font-bold">WordPress News Magazine Charts the Most Fashionable New York Women in 2018</h2>  
+                    <a href="google.com" class="text-xl font-bold" id="firstSliderMessage">WordPress News Magazine Charts the Most Fashionable New York Women in 2018</a>  
                 </div>  
             </div>  
 
@@ -35,14 +35,14 @@
             <div class="flex w-[100%] md:w-[34%]  flex-col justify-around items-center ">
 
                 <div class="bg-white w-[100%] h-[48%]  ">  
-                    <img src="./default.svg" alt="Person surfing" class="w-full h-[150px] object-cover">  
-                    <h3 class="text-lg font-semibold mt-3 p-3">The Most Anticipated Hotel Openings in Strasbourg this Summer</h3>  
+                    <img src="./default.svg" id="seccondSlider" alt="Person surfing" class="w-full h-[150px] object-cover">  
+                    <a href="google.com" id="seccondSliderMessage" class="text-lg font-semibold mt-3 p-3">The Most Anticipated Hotel Openings in Strasbourg this Summer</a>  
                 </div>  
 
 
                 <div class="bg-white w-[100%] h-[48%] ">  
-                    <img src="./default.svg" alt="Person surfing" class="w-full h-[150px] object-cover">  
-                    <h3 class="text-lg font-semibold mt-3 p-3">The Most Anticipated Hotel Openings in Strasbourg this Summer</h3>  
+                    <img src="./default.svg" id="thirdSlider" alt="Person surfing" class="w-full h-[150px] object-cover">  
+                    <a id="thirdSliderMessage" href="google.com" class="text-lg font-semibold mt-3 p-3">The Most Anticipated Hotel Openings in Strasbourg this Summer</a>  
                 </div>
 
                 
@@ -88,18 +88,90 @@
 
 {% include 'contact.html' %}
 
-<p id="testman">
+{% comment %} <p id="testman">
     nodeeeeeeeee
-    </p>
+    </p> {% endcomment %}
 
 <script type="text/javascript">
-    let img=document.getElementById('img-breaking');
-    let textTest=document.getElementById('testman');
-    let test={{ images|safe }}
-    console.log(test);
 
-   img.src= test[0].imagesrc
+    let firstSlider = document.getElementById("firstSlider");  
+    let seccondSlider = document.getElementById("seccondSlider");  
+    let thirdSlider = document.getElementById("thirdSlider");  
 
+    let firstSliderMessage = document.getElementById("firstSliderMessage");  
+    let seccondSliderMessage = document.getElementById("seccondSliderMessage");  
+    let thirdSliderMessage = document.getElementById("thirdSliderMessage");  
+
+
+    let breakingSlider = {{ breakingSlider|safe }};  
+    let developingSlider = {{ developingSlider|safe }};  
+    let exclusiveSlider = {{ exclusiveSlider|safe }};  
+
+    console.log(breakingSlider);  
+    console.log(developingSlider);  
+    console.log(exclusiveSlider)
+    
+    // Initial setup for sliders  
+    firstSlider.src = breakingSlider[0].imagesrc;  
+    firstSliderMessage.innerHTML = breakingSlider[0].message;  
+    firstSliderMessage.href = `new/${breakingSlider[0].link}`;  
+
+    seccondSlider.src = developingSlider[0].imagesrc;  
+    seccondSliderMessage.innerHTML = developingSlider[0].message;  
+    seccondSliderMessage.href = `new/${developingSlider[0].link}`;   
+
+    
+    thirdSlider.src = exclusiveSlider[0].imagesrc;  
+    thirdSliderMessage.innerHTML = exclusiveSlider[0].message;  
+    thirdSliderMessage.href = `new/${exclusiveSlider[0].link}`;   
+    
+
+    // Counter Slider Part
+    let countBreaking = 0; 
+    let countDeveloping = 0;
+    let countExclusiveSlider=0
+
+    function firstSliderFunc() {  
+        countBreaking += 1;  
+        if (countBreaking >= breakingSlider.length) {  
+            countBreaking = 0;  
+        }   
+        firstSlider.src = breakingSlider[countBreaking].imagesrc;  
+        firstSliderMessage.innerHTML = breakingSlider[countBreaking].message;  
+        firstSliderMessage.href = `new/${breakingSlider[countBreaking].link}`;  
+    }  
+    
+    function seccondSliderFunc() {  
+        countDeveloping += 1;  
+        if (countDeveloping >= developingSlider.length) {  
+            countDeveloping = 0;  
+        }   
+        seccondSlider.src = developingSlider[countDeveloping].imagesrc;  
+        seccondSliderMessage.innerHTML = developingSlider[countDeveloping].message;  
+        seccondSliderMessage.href = `new/${developingSlider[countDeveloping].link}`;  
+    }  
+
+
+    function thirdSliderFunc() {  
+        countExclusiveSlider += 1;  
+        if (countExclusiveSlider >= exclusiveSlider.length) {  
+            countExclusiveSlider = 0;  
+        }   
+        thirdSlider.src = exclusiveSlider[countExclusiveSlider].imagesrc;  
+        thirdSliderMessage.innerHTML = exclusiveSlider[countExclusiveSlider].message;  
+        thirdSliderMessage.href = `new/${exclusiveSlider[countExclusiveSlider].link}`;  
+    }  
+
+    
+    // Create a single function that calls both slider functions  
+    function updateSliders() {  
+        firstSliderFunc();  
+        seccondSliderFunc();  
+        thirdSliderFunc();
+    }  
+    
+    // Call updateSliders every 5 seconds  
+    setInterval(updateSliders, 5000);
 </script>
 
 {% endblock content %}

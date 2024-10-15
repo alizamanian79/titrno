@@ -25,7 +25,9 @@ def index_view(request):
         "form": form,
         "news": new,
         "breakingnews":BreakingNews(),
-        "images":breakingNewsImages(),
+        "breakingSlider":getSlider("BREAKING"),
+        "developingSlider":getSlider("DEVELOPING"),
+        "exclusiveSlider":getSlider("EXCLUSIVE")
     })
 def newpage_view(request, slug=None):  
 
@@ -81,14 +83,14 @@ def BreakingNews():
 
 
 
-def breakingNewsImages():
-    getNews=New.objects.filter(active=True,newstype='BREAKING').order_by('-created_at')
-    getImages=[]
+def getSlider(mode):
+    getNews=New.objects.filter(active=True,newstype=mode).order_by('-created_at')
+    breakingSlider=[]
     for new in getNews:
-        getImages.append(
+        breakingSlider.append(
             {"imagesrc":f"{new.image.url}",
              "message":f"{new.brief_message}",
              "link":f"{new.slug}"}
              )
         
-    return getImages
+    return breakingSlider
