@@ -1,17 +1,19 @@
 {% load static %}
 {% load website_tags %}
 
-<section class="mb-8">
-    <div class="flex text-[black] ml-2px flex flex-col h-auto mb-4">
-      <h3 class="text-xl font-bold mb-4 w-100">Search News</h3>
-      <form action="" method="GET">
+<section class="w-[100%]">
+    <div class="flex text-[black] w-[100%]  ml-2px flex flex-col h-auto mb-4"
+     style="direction:rtl">
+      <h3 class="text-2xl font-bold mb-4 w-100 font-[yekanBakhtBold]">جستجوی خبر</h3>
+      <form action="" method="GET" class="min-w-[100%]">
       <input
         class="bg-[transparent] 
-        border-solid border-2 border-[#d1d5db] py-2 pl-2 rounded-[5px] outline-none w-[100%]"
+        border-solid border-2 border-[#d1d5db]
+         font-[yekanBakht] py-2 pr-2 rounded-[5px] outline-none min-w-[100%]"
         type="text"
         value="{{ request.GET.q }}"
         name="q"
-        placeholder="Searching news title or any detail on news ..."
+        placeholder="عنوان یا قسمتی از توضیحات خبر مورد نظر ..."
       /></form>
     </div>
 

@@ -6,10 +6,10 @@
  flex flex-col mt-[3rem]  justify-center items-center">  
 
        <!-- News Bar Section -->   
-        <div class="w-[100%] flex h-auto 
+        <div style="direction:rtl" class="w-[100%] flex h-auto 
         justify-between bg-[black] text-[white] p-5 mb-[0.2rem]"  >  
-            <p class="w-[auto] md:w-[auto] lg:w-[8%] font-['yekanBakhtBold']">خبر فوری:</p>
-            <marquee direction="right" class=" w-[auto] md:w-[84%] lg:w-[92%] flex  ">
+            <p class="w-[20%] md:w-[auto] lg:w-[8%] font-['yekanBakhtBold']">خبر فوری:</p>
+            <marquee direction="right" class=" w-[auto] md:w-[84%] lg:w-[92%] flex  font-['yekanBakht']">
             
             <p class="flex">
                 {% for item in breakingnews %}
@@ -25,24 +25,38 @@
         <div class="flex w-[100%] px-5 justify-between flex-wrap jusify-around bg-[black]">  
             <!-- Main Article -->  
             <div class="flex w-[100%] md:w-[65%] max-h-[570px] relative mb-3 md:mb-0">  
-                <img src="./default.svg" id="firstSlider" alt="Woman in fashionable outfit" class="w-full h-[100%] object-cover">  
-                <div class="absolute bottom-0 left-0 right-0 bg-[#EF4444] text-white p-5">  
-                    <a href="google.com" class="text-xl font-bold" id="firstSliderMessage">WordPress News Magazine Charts the Most Fashionable New York Women in 2018</a>  
+                <img src="./default.svg" id="firstSlider" 
+                alt="Woman in fashionable outfit" class="min-w-full h-[100%] 
+                object-cover
+                
+                ">  
+                <div class="absolute bg-[#000000c7]  bottom-0 left-0 
+                right-0 text-[white] p-5" style="direction:rtl">  
+                    <a href="google.com" class="text-xl 
+                    rtl font-bold font-[yekanBakhtBold]" id="firstSliderMessage">WordPress News Magazine Charts the Most Fashionable New York Women in 2018</a>  
                 </div>  
             </div>  
 
             <!-- Side Articles -->  
             <div class="flex w-[100%] md:w-[34%]  flex-col justify-around items-center ">
 
-                <div class="bg-white w-[100%] h-[48%]  ">  
-                    <img src="./default.svg" id="seccondSlider" alt="Person surfing" class="w-full h-[150px] object-cover">  
-                    <a href="google.com" id="seccondSliderMessage" class="text-lg font-semibold mt-3 p-3">The Most Anticipated Hotel Openings in Strasbourg this Summer</a>  
+                <div class=" w-[100%] h-[48%] relative">  
+                    <img src="./default.svg" id="seccondSlider"
+                     alt="Person surfing" class="
+                    w-[100%] h-[100%] object-contain">  
+                    <a href="google.com" id="seccondSliderMessage" class="
+                    text-lg font-semibold mt-3 p-3
+                     absolute bottom-0 w-[100%] bg-[#000000c7] text-[white] flex justify-center font-[yekanBakhtBold] item-center h-[auto] ">The Most Anticipated Hotel Openings in Strasbourg this Summer</a>  
                 </div>  
 
 
-                <div class="bg-white w-[100%] h-[48%] ">  
-                    <img src="./default.svg" id="thirdSlider" alt="Person surfing" class="w-full h-[150px] object-cover">  
-                    <a id="thirdSliderMessage" href="google.com" class="text-lg font-semibold mt-3 p-3">The Most Anticipated Hotel Openings in Strasbourg this Summer</a>  
+                <div class=" w-[100%] h-[48%] relative">  
+                    <img src="./default.svg" id="thirdSlider" alt="Person surfing" 
+                    class="w-[100%] h-[100%] object-contain">  
+                    <a id="thirdSliderMessage" href="google.com"
+                     style="background-color: #000000c7"
+                    class="absolute bottom-0  w-[100%] flex justify-center 
+                    item-center h-[auto] text-lg font-semibold mt-3 p-3 text-[white] font-[yekanBakhtBold]">The Most Anticipated Hotel Openings in Strasbourg this Summer</a>  
                 </div>
 
                 
@@ -54,7 +68,8 @@
 <section class="flex flex-wrap w-[100%] h-[auto] mt-3 dir px-5" data-aos="fade-up">  
         
         <!-- Slider Section -->  
-        <div class="w-[100%] md:w-[45%] lg:w-[30%] flex jusify-center px-5 p-5" style="direction:ltr">
+        <div class="w-[100%] md:w-[45%]
+         lg:w-[30%] flex jusify-center px-5" style="direction:rtl">
          
             {% include "website/includes/slidebar.html" %}
 
@@ -63,14 +78,15 @@
         
 <!-- News -->
          <div class="w-[100%] md:w-[55%] lg:w-[70%]
-           grid  gap-2 mb-5 lg:grid-cols-3 md:grid-cols-2 grid-cols-1" style="direction:ltr">  
+           grid  gap-2 mb-5 lg:grid-cols-3 md:grid-cols-3 grid-cols-1" style="direction:rtl">  
              
             
         {% for new in news %}
-        <a href="{% url 'website:newpage' slug=new.slug %}"><div class="border border-gray-300 p-5 ">  
-                  <img src="{{ new.image.url }}" alt="Cristiano Ronaldo" class="w-full h-auto mb-2" />  
-                  <h3 class="text-lg font-semibold mb-2">{{new.title}}</h3>  
-                  <p>{{new.brief_message}}</p>  
+        <a href="{% url 'website:newpage' slug=new.slug %}">
+            <div class="border border-gray-300 ">  
+                  <img src="{{ new.image.url }}" alt="Cristiano Ronaldo" class="w-[100%] object-cover h-[250px] mb-2" />  
+                  <h3 class=" px-5 text-lg font-semibold font-[yekanBakhtBold]">{{new.title|truncatechars:20}}</h3>  
+                  <p class=" pt-2 pb-4 px-5">{{new.brief_message| truncatechars:20}}</p>  
          </div></a>  
  {% endfor %}
 
