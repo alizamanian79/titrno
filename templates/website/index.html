@@ -65,7 +65,7 @@
     </div>  
 
 <!-- Section2  -->  
-<section class="flex flex-wrap w-[100%] h-[auto] mt-3 dir px-5" data-aos="fade-up">  
+<section class="flex flex-wrap w-[100%] h-[auto] mt-3 dir px-0 md:px-5" data-aos="fade-up">  
         
         <!-- Slider Section -->  
         <div class="w-[100%] md:w-[45%]
@@ -77,21 +77,34 @@
         </div>
         
 <!-- News -->
-         <div class="w-[100%] md:w-[55%] lg:w-[70%]
-           grid  gap-2 mb-5 lg:grid-cols-3 md:grid-cols-3 grid-cols-1" style="direction:rtl">  
+         <div class= "w-[100%] md:w-[55%] lg:w-[70%]
+           grid  gap-2 mb-5 lg:grid-cols-3 md:grid-cols-3
+            grid-cols-1 justify-center align-items relative" style="direction:rtl">  
              
-            
-        {% for new in news %}
-        <a href="{% url 'website:newpage' slug=new.slug %}">
-            <div class="border border-gray-300 ">  
-                  <img src="{{ new.image.url }}" alt="Cristiano Ronaldo" class="w-[100%] object-cover h-[250px] mb-2" />  
-                  <h3 class=" px-5 text-lg font-semibold font-[yekanBakhtBold]">{{new.title|truncatechars:20}}</h3>  
-                  <p class=" pt-2 pb-4 px-5">{{new.brief_message| truncatechars:20}}</p>  
-         </div></a>  
- {% endfor %}
+           {% if news %}  
+           {% for new in news %}  
+          
+               <a href="{% url 'website:newpage' slug=new.slug %}">  
+                   <div class="border border-gray-300 ">  
+                       <img src="{{ new.image.url }}" alt="Cristiano Ronaldo" class="w-[100%] object-cover h-[250px] mb-2" />  
+                       <h3 class="px-5 text-lg font-semibold font-[yekanBakhtBold]">{{ new.title|truncatechars:20 }}</h3>  
+                       <p class="pt-2 pb-4 px-5">{{ new.brief_message|truncatechars:20 }}</p>  
+                   </div>  
+               </a>  
+           {% endfor %}  
+            {% else %}  
 
+    
+      <div class="absolute top-[50%] right-[0%] md:right[50%] flex flex-col mt-3">
+
+        <h3 class="text-2xl font-[yekanBakhtBold] " >نتیجه جستجو : </h3>
+        <h5 class="text-xl font-[yekanBakht] " >خبر پیدا نشد</h5>
+    
+     </div>
         
-
+      
+         
+       {% endif %}
 
        
 

@@ -6,7 +6,7 @@
 <ul class="" style="direction:rtl">
   {% for new in News %}
   <a href="{% url 'website:newpage' slug=new.slug %}">
-  <li class="flex items-center md:mt-2">
+  <li class="flex items-center my-3 md:mt-2">
     <img
       src="{{new.image.url}}"
       alt="News thumbnail"

@@ -6,6 +6,9 @@ urlpatterns = [
     path("",views.index_view,name="index"),
     path('new/<str:slug>/',views.newpage_view, name='newpage'),
 
+  
+    path('category/search/<path:cat>/',views.index_view, name='search_category'),
+
     # Crud News Api with CBV
     path('manage/new/list/',views.NewsListView.as_view(),name="news-list"),
     path('manage/new/detail/<int:pk>/',views.NewDetailView.as_view(),name="new-detail"),

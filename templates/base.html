@@ -14,20 +14,50 @@
     
     <script src="{% static 'js/tailwind.js'%}"></script>  
    
+
+    <!-- Link to page by function-->
+    <script>  
+        function navigateToPage() {  
+            const selectElement = document.getElementById('pageSelect');  
+            const selectedValue = selectElement.value;  
+            if (selectedValue) {  
+                window.location.href = selectedValue;  
+            }  
+        }  
+    </script>  
+
+
 </head>  
 <body class="relative font-sans " > 
 
 
      <!-- Menu -->
-     <div class="fixed top-0 z-[10] w-[100%] h-[auto] " >
+     <div class="fixed top-0 z-[10] w-[100%] h-[auto] overflow-y-auto fixed top-[0] z-[20]" >
 
         <header class="flex justify-between items-center p-4 bg-gray-100 shadow-md transition delay-75">
              <div class="text-xl font-bold text-gray-800">NFLUENCE</div>
              <nav class="hidden md:flex space-x-4 ">
-                 <a href="#" class="hover:text-[#EF4444] text-gray-800 uppercase text-sm font-bold">Services</a>
-                 <a href="#" class="hover:text-[#EF4444] text-gray-800 uppercase text-sm  font-bold">Workshops</a>
-                 <a href="#" class="hover:text-[#EF4444] text-gray-800 uppercase text-sm  font-bold">Resources</a>
-           </nav>
+
+          
+                 <select class="hover:text-[#EF4444] text-gray-800 uppercase text-sm font-bold outline-none bg-[transparent]"
+                  id="pageSelect" onchange="navigateToPage()">  
+                    <option value="" disable >Category</option> 
+                    {% for cat in categories %}
+                    <option value="{% url 'website:search_category' cat=cat.title %}">{{cat.title}}</option> 
+                     {% endfor %} 
+                </select>  
+
+
+                {%if request.user.is_authenticated%}
+                <a href="{% url 'accounts:logout' %}" class="hover:text-[#EF4444] text-gray-800 uppercase text-sm font-bold">logout</a>
+                 <a href="#" class="hover:text-[#EF4444] text-gray-800 uppercase text-sm font-bold">{{request.user.username}}</a>
+               {% else %}
+               <a href="{% url 'accounts:login' %}" class="hover:text-[#EF4444] text-gray-800 uppercase text-sm font-bold">Login</a>
+               <a href="{% url 'accounts:signup' %}" class="hover:text-[#EF4444] text-gray-800 uppercase text-sm font-bold">SignUp</a>
+               {% endif %}
+
+
+                </nav>
              <button class="md:hidden text-2xl" id="menu-toggle">
                  <!-- Hamburger icon -->
                  <span id="hamburger-icon" class="block">☰</span>
@@ -36,12 +66,34 @@
              </button>
          </header>
      
-         <nav class="hidden flex-wrap items-center bg-gray-100 p-4 md:hidden  h-[auto]" id="mobile-nav">
-             <a href="#" class="hover:text-[#EF4444] text-gray-800 uppercase text-sm  h">Services</a>
-             <br> 
-             <a href="#" class="hover:text-[#EF4444] text-gray-800 uppercase text-sm  h">Workshops</a>
-             <br> <a href="#" class="hover:text-[#EF4444] text-gray-800 uppercase text-sm  h">Resources</a>
-         </nav>
+         <nav class="hidden overflow-y-auto
+         flex-wrap flex-col items-center 
+          bg-gray-100 p-4 md:hidden  h-[auto]" id="mobile-nav">
+            
+        
+           
+             {%if request.user.is_authenticated%}
+             <h1 class="flex justify-end text-2xl text-red-500 mb-1 font-[yekanBakhtBold]">پروفایل</h1>
+             <a href="{% url 'accounts:logout' %}" class="hover:text-[#EF4444] text-gray-800 uppercase text-sm  h">logout</a>
+            <br>
+              <a href="#" class="hover:text-[#EF4444] text-gray-800 uppercase text-sm  h">{{request.user.username}}</a>
+            {% else %}
+            <a href="{% url 'accounts:login' %}" class="hover:text-[#EF4444] text-gray-800 uppercase text-sm  h">Login</a>
+            <br>
+            <a href="{% url 'accounts:signup' %}" class="hover:text-[#EF4444] text-gray-800 uppercase text-sm  h">SignUp</a>
+            {% endif %}
+            <br/>
+            <br/>
+            <h2 class="flex justify-end text-2xl text-red-500 mb-1 font-[yekanBakhtBold]">دسته بندی</h2>
+           
+          
+            {% for cat in categories %}
+             <a href="{% url 'website:search_category' cat=cat.title %}" class="hover:text-[#EF4444] text-gray-800 uppercase text-sm  h">{{cat.title}}</a>
+             <br>
+            {% endfor %}
+        
+          
+        </nav>
      
      
          </div>

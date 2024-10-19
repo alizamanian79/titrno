@@ -49,6 +49,7 @@ class SignUpView(View):
         if form.is_valid():
             user = form.save()
             messages.success(request, "You signed up successfully.")
+            login(request, user)
             return redirect('website:index')
         else:
             messages.error(request, "Invalid form submission.")
