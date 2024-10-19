@@ -10,8 +10,7 @@ class TagAdmin(admin.ModelAdmin):
 class NewAdmin(admin.ModelAdmin):
     list_display = ('title', 'journalist', 'newstype', 'active', 'created_at', 'updated_at')
     list_filter = ('newstype', 'active', 'created_at')
-    search_fields = ('title', 'description', 'journalist__username')
-    prepopulated_fields = {'slug': ('title',)}  
+    search_fields = ('title', 'description', 'journalist__username') 
     filter_horizontal = ('categories', 'tags')  
 
 
