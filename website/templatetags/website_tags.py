@@ -2,7 +2,9 @@ from django import template
 register = template.Library()
 from website.models import  New,Category,Tag
 from datetime import datetime 
-
+from ..forms import ContactForm
+from django.contrib import messages
+from django.shortcuts import redirect
 
 @register.inclusion_tag("website/includes/latest-news.html")
 def recent_news():
@@ -30,12 +32,9 @@ def footer():
     
 
 
-# @register.simple_tag()
-# def getCat():
-    categories=Category.objects.all()
-    new=New.objects.all(active=True)
-    categories_count={}
-    for cat in categories:
-        categories_count[cat]=new.filter(category__title=cat).count()
-    
-    return {'categories_count':categories_count}
+
+
+
+@register.inclusion_tag("contact.html")  
+def contact():   
+    return   

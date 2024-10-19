@@ -1,0 +1,30 @@
+
+{%load static %}
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+    <meta charset="UTF-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title>News Site Layout</title>  
+    <link href="{% static 'css/direction.css'%}" rel="stylesheet">
+    <!-- AOS CSS -->  
+    <link href="{% static 'css/aos.css'%}" rel="stylesheet">
+    <link href="{% static 'css/global.css'%}" rel="stylesheet">
+    
+    <script src="{% static 'js/tailwind.js'%}"></script>  
+   
+</head>  
+<body class="relative font-sans " > 
+
+     
+        <h1>This is news List Page</h1>
+        {% for new in news %}
+        <div class="flex ">
+        <a href="{% url 'website:new-detail' pk=new.id %}"><p>{{new.title}}</p></a>
+        <a class="p-5 ml-2 bg-[red]" href="{% url 'website:new-delete' pk=new.id  %}"><button>Delete</button></a>
+        <a class="p-5 ml-2 bg-[red]" href="{% url 'website:new-update' pk=new.id  %}"><button>update</button></a>
+    </div>
+        {% endfor %}
+        <script src="" async defer></script>
+    </body>
+</html>

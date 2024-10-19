@@ -1,0 +1,6 @@
+
+<p>Are you sure you want to delete this item {{new}}?
+    <form method="POST">
+        {% csrf_token %}
+        <button type="submit">Delete</button>
+    </form>
