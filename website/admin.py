@@ -12,7 +12,7 @@ class NewAdmin(admin.ModelAdmin):
     list_filter = ('newstype', 'active', 'created_at')
     search_fields = ('title', 'description', 'journalist__username') 
     filter_horizontal = ('categories', 'tags')  
-
+    prepopulated_fields = {'slug': ('title',)}
 
 class ContactAdmin(admin.ModelAdmin):
     list_display = ('firstName','lastName','email', 'active', 'created_at')
