@@ -1,0 +1,60 @@
+<footer class="bg-black text-white p-5 font-[yekanBakht]" style="direction:rtl">
+    <div class="max-w-[100%] flex flex-wrap justify-between">
+        <!-- Services Section -->
+        <div class="flex-1 min-w-[200px] mb-5">
+            <h3 class="text-red-500 border-b border-red-500 pb-2 mb-4 font-[yekanBakhtBold] text-2xl">خبرها</h3>
+            <ul>
+                
+        
+      {% for cat,num in categories_count.items %}  
+                <li class="mb-2"><a href="#" class="hover:underline">{{cat}}:{{num}}</a></li>
+        {% endfor %} 
+
+            </ul>
+        </div>
+
+        <!-- Portfolio Section -->
+        <div class="flex-1 min-w-[200px] mb-5">
+            <h3 class="text-red-500 border-b border-red-500 pb-2 mb-4 font-[yekanBakhtBold] text-2xl">تگ ها</h3>
+            <ul>
+               
+        {% for tag,num in tags_count.items %}  
+                <li class="mb-2"><a href="#" class="hover:underline">{{tag}}</a></li>
+        {% endfor %} 
+            </ul>
+        </div>
+
+        <!-- Contact Section -->
+        <div class="flex-1 min-w-[200px] mb-5">
+            <h3 class="text-red-500 border-b border-red-500 pb-2 mb-4 font-[yekanBakhtBold] text-2xl">ارشیو ها</h3>
+            <p>Call us: +27 (0)41 365 4919</p>
+        </div>
+
+        <!-- Stay Connected Section -->
+        <div class="flex-1 min-w-[200px] mb-5">
+            <h3 class="text-red-500 border-b border-red-500 pb-2 mb-4 font-[yekanBakhtBold] text-2xl">خبرگذاری</h3>
+            <div class="flex space-x-3 text-2xl mb-5" style="direction:ltr">
+                <a href="#" aria-label="Facebook" class="hover:underline">T</a>
+                <a href="#" aria-label="Twitter" class="hover:underline">I</a>
+                <a href="#" aria-label="LinkedIn" class="hover:underline">T</a>
+                <a href="#" aria-label="Instagram" class="hover:underline">R</a>
+                <a href="#" aria-label="Pinterest" class="hover:underline">N</a>
+                <a href="#" aria-label="YouTube" class="hover:underline">O</a>
+            </div>
+          
+        </div>
+    </div>
+
+    <div class="max-w-[100%] mx-auto mt-5">
+        <div class="flex-1 min-w-[200px] mb-5">
+            <h3 class="text-red-500 border-b border-red-500 pb-2 mb-4 font-[yekanBakhtBold] text-2xl">راه ارتباطی با ما</h3>
+            <p>تماس : <bdi>+98 991 740 3979</bdi></p>
+            <p>ایمیل : <bdi>alizamaniandev@gmail.com</bdi></p>
+        </div>
+    </div>
+
+    <!-- Copyright Section -->
+    <div class="text-center mt-5 border-t border-gray-700 pt-5">
+        <p>&copy; این صفحه توسط علی زمانیان نوشته شده است | <a href="#" class="hover:underline">Privacy</a></p>
+    </div>
+</footer>
