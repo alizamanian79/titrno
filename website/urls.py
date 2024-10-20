@@ -13,7 +13,7 @@ urlpatterns = [
 
     
     # Crud News Api with CBV
-    path('manage/new/list/',views.NewsListView.as_view(),name="news-list"),
+    path('manage/new/',views.NewsListView.as_view(),name="news-list"),
     path('manage/new/detail/<int:pk>/',views.NewDetailView.as_view(),name="new-detail"),
     path('manage/new/delete/<int:pk>/',views.NewDeleteView.as_view(),name="new-delete"),
     path('manage/new/update/<int:pk>/',views.NewUpdateView.as_view(),name="new-update"),
