@@ -15,8 +15,8 @@
         
           {% if searchNews %}
           
-            <h2 class="text-3xl font-bold mb-2 ">Search Result</h2> <br/>
-            {% comment %} <h2 class="text-1xl  mb-4 px-5">in this categories</h2>  {% endcomment %}
+            <h2 class=" font-bold mb-2 text-3xl font-[yekanBakhtBold] text-right">نتیجه جستجو</h2> <br/>
+          
             <div
               class="w-[100%] md:w-[100%] lg:w-[33.33] 
                grid  gap-2 mb-5 md:grid-cols-3 lg:grid-cols-4 grid-cols-1"
@@ -28,12 +28,12 @@
                 <img
                   src="{{item.image.url}}"
                   
-                  class="w-full h-auto mb-2"
+                  class="w-full h-[160px] object-cover mb-2"
                 />
-                <h3 class="text-lg font-semibold mb-2">
-                  {{item.title|truncatewords:20}}
+                <h3 class="text-lg font-semibold mb-2 text-2xl font-[yekanBakhtBold] text-right">
+                  {{item.title|truncatewords:25}}
                 </h3>
-                <p>{{item.description|truncatewords:10}}</p>
+                <p class="text-xl font-[yekanBakht] text-right">{{item.description|truncatewords:21}}</p>
               </div></a>
           {% endfor %}</div>
         
@@ -42,12 +42,12 @@
             <img
               src="{{new.image.url}}"
               alt="Article image"
-              class="w-full h-[50vh] object-cover mb-4"
+              class="w-full h-[55vh] object-cover mb-4"
             />
-            <h2 class="text-3xl font-bold mb-2">
+            <h2 class="text-3xl font-bold mb-2 text-3xl font-[yekanBakhtBold] text-right">
               {{new.title}}
             </h2>
-            <p class="text-gray-600 mb-4">
+            <p class="text-gray-600 mb-4 text-2xl font-[yekanBakht] text-right">
               {{new.description}}
             </p>
             <div class="flex items-center text-sm text-gray-500">
@@ -56,7 +56,7 @@
                 alt="Author"
                 class="w-10 h-10 rounded-full mr-2"
               />
-              <span>{{new.journalist.username}}</span>
+              <span class="text-xl font-[yekanBakht] text-left">{{new.journalist.username}}</span>
               <span class="mx-2">•</span>
               <span>{{new.updated_at}}</span>
             
@@ -71,21 +71,7 @@
         <div>
 
        {% include "website/includes/slidebar.html" %}
-         
-          {% comment %} <section>
-            <h3 class="text-xl font-bold mb-4">Most Popular</h3>
-            <ul class="space-y-4">
-              <li>
-                <span class="text-3xl font-bold text-gray-300 mr-4">01</span>
-                <a href="#" class="font-semibold hover:underline"
-                  >Bradley Cooper's "Twin" Causes Madness At Sundance Film
-                  Festival Opening</a
-                >
-              </li>
-              <!-- Add more popular items here -->
-            </ul>
-          </section> {% endcomment %}
-
+  
 
         </div>
       </div>
@@ -96,24 +82,24 @@
 
 {% if similarNews %}  
 <div class="flex flex-col w-[100%]  p-3" data-aos="fade-up" data-aos-duration="500">  
-    <h2 class="text-3xl font-bold mb-2 px-5">Similar news</h2>   
-    <h2 class="text-1xl  mb-4 px-5">in these categories</h2>   
+    <h2 class="text-3xl font-bold mb-2 px-5 text-3xl font-[yekanBakhtBold] text-right">اخبار مشابه</h2>   
+    <h2 class="text-1xl  mb-4 px-5 text-xl font-[yekanBakht] text-right">در همین دسته بندی</h2>   
     <div  
-      class="w-[100%] md:w-[100%] lg:w-[100%] p-5  
-       grid  gap-2 mb-5 md:grid-cols-3 lg:grid-cols-4 grid-cols-1"  
-    >  
+      class="w-[100%] md:w-[100%] lg:w-[100%] p-5 text-right align-right
+       grid  gap-2 mb-5 md:grid-cols-3 lg:grid-cols-4 grid-cols-1 w-[100%]"  
+   style="direction:rtl">  
    
     {% for item in similarNews %}  
       <a href="{% url 'website:newpage' slug=item.slug %}">  
         <div class="border border-gray-300 p-5">  
         <img  
           src="{{ item.image.url }}"  
-          class="w-full h-auto mb-2"  
+          class="w-full h-[150px] mb-2 "  
         />  
-        <h3 class="text-lg font-semibold mb-2">  
-          {{ item.title|truncatewords:20 }}  
+        <h3 class="text-lg font-semibold mb-2 text-2xl font-[yekanBakhtBold] text-right">  
+          {{ item.title|truncatewords:25 }}  
         </h3>  
-        <p>{{ item.description|truncatewords:10 }}</p>  
+        <p class="text-xl font-[yekanBakht] text-right">{{ item.description|truncatewords:21 }}</p>  
       </div>  
       </a>  
     {% endfor %}  
