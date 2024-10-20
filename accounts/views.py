@@ -21,12 +21,12 @@ class SignInView(View):
             user = authenticate(request, username=username, password=password)
             if user is not None:
                 login(request, user)
-                messages.success(request, "You logged in successfully.")
+                messages.success(request, f"{username} خوش امدید")
                 return redirect('/')
             else:
                 messages.error(request, "Your username and password are incorrect.")
         else:
-            messages.error(request, "Invalid form submission.")
+            messages.error(request, "خطا در مقدار اطلاعات.")
 
         context = {"form": form}
         return render(request, 'accounts/login.html', context)
@@ -35,7 +35,7 @@ class SignInView(View):
 class LogoutView(View):
     def get(self, request):
         logout(request)
-        messages.success(request, "You logged out successfully.")
+        messages.success(request, "شما با موفقیت خارج شدید.")
         return redirect('website:index')
 
 class SignUpView(View):
@@ -48,11 +48,11 @@ class SignUpView(View):
         form = UserCreationForm(data=request.POST)
         if form.is_valid():
             user = form.save()
-            messages.success(request, "You signed up successfully.")
+            messages.success(request, "ثبت نام با موفقیت انجام شد.")
             login(request, user)
             return redirect('website:index')
         else:
-            messages.error(request, "Invalid form submission.")
+            messages.error(request, "خطا مقدار وارد شده ضعف امنیتی دارد و یا مقادیر هم خوانی ندارد")
 
         context = {"form": form}
         return render(request, 'accounts/signup.html', context)
