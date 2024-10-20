@@ -32,7 +32,7 @@
 
 
      <!-- Menu -->
-     <div class="fixed top-0 z-[10] w-[100%] h-[auto] overflow-y-auto fixed top-[0] z-[20]" >
+     <div class="fixed top-0 z-[10] w-[100%] h-[auto] bg-[#F3F4F6] overflow-y-auto fixed top-[0] z-[20]" >
 
         <header class="flex justify-between items-center p-4 bg-gray-100 shadow-md transition delay-75">
             
@@ -44,21 +44,21 @@
              <nav class="hidden md:flex space-x-4 ">
 
           
-                 <select class="hover:text-[#EF4444] text-gray-800 uppercase text-sm font-bold outline-none bg-[transparent]"
+                 <select class="hover:text-[#EF4444] text-[black] uppercase  font-bold outline-none bg-[transparent] text-[19px] font-[yekanBakhtBold] text-right"
                   id="pageSelect" onchange="navigateToPage()">  
-                    <option value="" disable >Category</option> 
+                    <option value=" p-3 font-[yekanBakht]" disable class="" >خبرها</option> 
                     {% for cat in categories %}
-                    <option value="{% url 'website:search_category' cat=cat.title %}">{{cat.title}}</option> 
+                    <option class=" p-3 font-[yekanBakht]" value="{% url 'website:search_category' cat=cat.title %}">{{cat.title}}</option> 
                      {% endfor %} 
                 </select>  
 
 
                 {%if request.user.is_authenticated%}
-                <a href="{% url 'accounts:logout' %}" class="hover:text-[#EF4444] text-gray-800 uppercase text-sm font-bold">logout</a>
-                 <a href="#" class="hover:text-[#EF4444] text-gray-800 uppercase text-sm font-bold">{{request.user.username}}</a>
+                <a href="{% url 'accounts:logout' %}" class="hover:text-[#EF4444] text-gray-800 uppercase  font-bold text-[19px] font-[yekanBakhtBold] text-right">خروج از حساب</a>
+                 <a href="#" class="hover:text-[#EF4444] text-gray-800 uppercase  font-bold font-bold text-[19px] font-[yekanBakhtBold] text-right ">{{request.user.username}}</a>
                {% else %}
-               <a href="{% url 'accounts:login' %}" class="hover:text-[#EF4444] text-gray-800 uppercase text-sm font-bold">Login</a>
-               <a href="{% url 'accounts:signup' %}" class="hover:text-[#EF4444] text-gray-800 uppercase text-sm font-bold">SignUp</a>
+               <a href="{% url 'accounts:login' %}" class="hover:text-[#EF4444] text-gray-800 uppercase font-bold font-bold text-[19px] font-[yekanBakhtBold] text-right">ورود</a>
+               <a href="{% url 'accounts:signup' %}" class="hover:text-[#EF4444] text-gray-800 uppercase  font-bold font-bold text-[19px] font-[yekanBakhtBold] text-right">عضویت</a>
                {% endif %}
 
 
@@ -72,8 +72,8 @@
          </header>
      
          <nav class="hidden overflow-y-auto
-         flex-wrap flex-col items-center 
-          bg-gray-100 p-4 md:hidden  h-[auto]" id="mobile-nav">
+         flex-wrap flex-col items-center  font-bold text-[19px] font-[yekanBakhtBold] text-right
+          bg-gray-100 p-4 md:hidden  h-[100vh]" id="mobile-nav">
             
         
            
