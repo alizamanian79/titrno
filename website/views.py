@@ -16,6 +16,12 @@ def index_view(request,**kwargs):
 
     if kwargs.get("cat"):  
        news = news.filter(categories__title=kwargs["cat"])  
+    
+    if kwargs.get("tag"):  
+       news = news.filter(tags__title=kwargs["tag"])  
+
+    if kwargs.get("journalist"):  
+       news = news.filter(journalist__username=kwargs["journalist"]) 
 
 
     if request.method=="POST":
@@ -52,8 +58,7 @@ def newpage_view(request, slug=None):
     form = ContactForm()
     new = get_object_or_404(New, active=True, slug=slug)  
     similarNews = New.objects.filter(active=True, categories__in=new.categories.all()).exclude(id=new.id).distinct()  
-
-    # Render the response with the context  
+ 
     return render(request, 'website/new-page.html', {  
         "new": new,  
         "categories":categories,

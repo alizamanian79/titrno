@@ -18,6 +18,9 @@
 
      
         <h1>This is news List Page</h1>
+
+        <a href="{% url 'website:new-create' %}">Add your News</a>
+
         {% for new in news %}
         <div class="flex ">
         <a href="{% url 'website:new-detail' pk=new.id %}"><p>{{new.title}}</p></a>

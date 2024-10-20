@@ -7,7 +7,7 @@
                 
         
       {% for cat,num in categories_count.items %}  
-        <li class="mb-2"><a href="#" class="hover:underline">{{cat}}:{{num}}</a></li>
+        <li class="mb-2"><a href="{% url 'website:search_category' cat=cat %}" class="hover:underline">{{cat}}:{{num}}</a></li>
         {% endfor %} 
 
             </ul>
@@ -19,7 +19,7 @@
             <ul>
                
         {% for tag,num in tags_count.items %}  
-                <li class="mb-2"><a href="#" class="hover:underline">{{tag}}</a></li>
+                <li class="mb-2"><a href="{% url 'website:search_tag' tag=tag %}" class="hover:underline">{{tag}}</a></li>
         {% endfor %} 
             </ul>
         </div>
