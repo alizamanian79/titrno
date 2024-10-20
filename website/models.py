@@ -19,11 +19,9 @@ class Tag(models.Model):
 class New(models.Model):  
 
     NEWS_TYPE_CHOICES = [
-        ('BREAKING', 'Breaking News'),  # اخبار فوری
-        ('DEVELOPING', 'Developing Story'),  # خبر در حال تکامل
-        ('URGENT', 'Urgent'),  # فوری
-        ('LIVE', 'Live Updates'),  # به‌روزرسانی‌های زنده
-        ('EXCLUSIVE', 'Exclusive'),  # انحصاری
+        ('BREAKING', 'خبر فوری'),
+        ('DEVELOPING', 'خبر در حال تکامل'),  
+        ('EXCLUSIVE', 'انحصاری'),
     ]
 
     journalist = models.ForeignKey(User, on_delete=models.CASCADE)  
@@ -32,7 +30,7 @@ class New(models.Model):
     title = models.CharField(max_length=255)  
     description = models.TextField()  
     categories = models.ManyToManyField(Category)  
-    tags = models.ManyToManyField(Tag)  
+    tags = models.ManyToManyField(Tag,null=True, blank=True)  
     slug = models.SlugField(unique=True, allow_unicode=True,null=True,blank=True)   
     newstype = models.CharField(max_length=20, choices=NEWS_TYPE_CHOICES,null=True, blank=True) 
     active = models.BooleanField(default=False)  
@@ -41,7 +39,7 @@ class New(models.Model):
 
     def save(self, *args, **kwargs): 
         if not self.slug:  
-            self.slug = slugify(self.title)  
+            self.slug = slugify(self.title,allow_unicode=True)  
         super(New,self).save(*args, **kwargs)  
 
     def __str__(self):  

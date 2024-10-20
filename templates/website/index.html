@@ -69,7 +69,7 @@
         
         <!-- Slider Section -->  
         <div class="w-[100%] md:w-[45%]
-         lg:w-[30%] flex jusify-center px-5" style="direction:rtl">
+         lg:w-[30%] flex jusify-center md:px-5 px-3" style="direction:rtl">
          
             {% include "website/includes/slidebar.html" %}
 
@@ -77,7 +77,7 @@
         </div>
         
 <!-- News -->
-         <div class= "w-[100%] md:w-[55%] lg:w-[70%]
+         <div class= "w-[100%] md:w-[55%] lg:w-[70%] md:p-0 px-2
            grid  gap-2 mb-5 lg:grid-cols-3 md:grid-cols-3
             grid-cols-1 justify-center align-items relative" style="direction:rtl">  
              
@@ -95,7 +95,14 @@
             {% else %}  
 
     
-      <div class="absolute top-[50%] right-[0%] md:right[50%] flex flex-col mt-3">
+      <div class="absolute 
+
+      max-sm:top-[50%] max-sm:right-[1rem] 
+      md:right[50%] md:top[50%] 
+      lg:right[50%] lg:top[50%] 
+      
+      md:items-center
+      flex flex-col mt-3">
 
         <h3 class="text-2xl font-[yekanBakhtBold] " >نتیجه جستجو : </h3>
         <h5 class="text-xl font-[yekanBakht] " >خبر پیدا نشد</h5>
@@ -140,6 +147,8 @@
     firstSlider.src = breakingSlider[0].imagesrc;  
     firstSliderMessage.innerHTML = breakingSlider[0].message;  
     firstSliderMessage.href = `new/${breakingSlider[0].link}`;  
+
+    
 
     seccondSlider.src = developingSlider[0].imagesrc;  
     seccondSliderMessage.innerHTML = developingSlider[0].message;  
@@ -195,8 +204,14 @@
         thirdSliderFunc();
     }  
     
-    // Call updateSliders every 5 seconds  
-    setInterval(updateSliders, 5000);
+
+    if (firstSlider && seccondSlider && thirdSlider && firstSliderMessage && seccondSliderMessage && thirdSliderMessage) {
+        setInterval(updateSliders, 5000);
+    } else {
+        console.error("One or more slider elements are missing.");
+    }
+    
+
 </script>
 
 {% endblock content %}
