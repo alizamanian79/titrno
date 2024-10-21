@@ -30,7 +30,7 @@ class New(models.Model):
     title = models.CharField(max_length=255)  
     description = models.TextField()  
     categories = models.ManyToManyField(Category)  
-    tags = models.ManyToManyField(Tag,null=True, blank=True)  
+    tags = models.ManyToManyField(Tag)  
     slug = models.SlugField(unique=True, allow_unicode=True,null=True,blank=True)   
     newstype = models.CharField(max_length=20, choices=NEWS_TYPE_CHOICES,null=True, blank=True) 
     active = models.BooleanField(default=False)  
