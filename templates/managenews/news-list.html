@@ -1,5 +1,7 @@
 
 {%load static %}
+{% load website_tags %}
+
 <!DOCTYPE html>  
 <html lang="en">  
 <head>  
@@ -14,20 +16,73 @@
     <script src="{% static 'js/tailwind.js'%}"></script>  
    
 </head>  
-<body class="relative font-sans " > 
+<body class="relative font-sans " class="" > 
 
      
-        <h1>This is news List Page</h1>
+<div class="min-w-[100vw] min-h-[100vh]  flex flex-col bg-[#F5F5F7]">
 
-        <a href="{% url 'website:new-create' %}">Add your News</a>
+<div class="w-[100%] h-[auto] flex justify-between p-8 ">
 
-        {% for new in news %}
-        <div class="flex ">
-        <a href="{% url 'website:new-detail' pk=new.id %}"><p>{{new.title}}</p></a>
-        <a class="p-5 ml-2 bg-[red]" href="{% url 'website:new-delete' pk=new.id  %}"><button>Delete</button></a>
-        <a class="p-5 ml-2 bg-[red]" href="{% url 'website:new-update' pk=new.id  %}"><button>update</button></a>
+
+<div class="w-[100%] h-[auto] flex flex-wrap">
+
+    <!-- Add New Card-->
+    <div class="w-[100%] md:w-[24%] h-[250px] mt-3 md:m-1 bg-[#FFFFFF] rounded-sm flex flex-col 
+    justify-center items-center hover:shadow-lg shadow-sm hover:cursor-pointer">
+        <a href="{% url 'website:new-create' %}"><div class="w-[95px] h-[95px] rounded-[50%] text-3xl font-bold flex justify-center items-center border-8 border-[#F6F4F8]">+</div></a> 
+        <p class="mt-3 font-[yekanBakht]">افزودن خبر</p>
     </div>
-        {% endfor %}
+    <!-- Add New Card-->
+
+    <!--  Cards -->
+    {% for new in news %}
+    <div class="w-[100%] md:w-[24%] h-[250px] 
+    mt-3 md:m-1 bg-[#FFFFFF] rounded-sm flex flex-col 
+    items-center hover:shadow-lg
+    shadow-sm hover:cursor-pointer">
+    
+
+    <img src="{{ new.image.url }}" class="w-[100%] h-[50%] object-cover" />
+
+    <div class="flex flex-col w-[100%] h-[50%] text-right p-3  font-[yekanBakht]">
+    <p class="w-[100%]  py-2">{{new.title|truncatewords:9}} </p>
+
+     <div class="flex">
+    <a href="{% url 'website:new-delete' pk=new.id  %}" class=" m-1 p-3 rounded bg-[red] text-[white]">حذف</a>
+    <a href="{% url 'website:new-update' pk=new.id  %}" class=" m-1 p-3 rounded bg-[black] text-[white]">ویرایش</a>
+    </div>
+
+
+    </div>
+
+    </div>
+    {% endfor %}
+<!--  Cards -->
+    
+</div>
+
+
+
+{% comment %} <div>
+{% for new in news %}
+<div class="flex ">
+<a href="{% url 'website:new-detail' pk=new.id %}"><p>{{new.title}}</p></a>
+<a class="p-5 ml-2 bg-[red]" href="{% url 'website:new-delete' pk=new.id  %}"><button>Delete</button></a>
+<a class="p-5 ml-2 bg-[red]" href="{% url 'website:new-update' pk=new.id  %}"><button>update</button></a>
+</div>
+{% endfor %}
+</div>
+
+</div> {% endcomment %}
+
+        
+
+        
+
+   
+
+
+
         <script src="" async defer></script>
     </body>
 </html>
