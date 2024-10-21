@@ -1,10 +1,8 @@
 from django import template
-register = template.Library()
 from website.models import  New,Category,Tag
-from datetime import datetime 
-from ..forms import ContactForm
-from django.contrib import messages
-from django.shortcuts import redirect
+from persiantools.jdatetime import JalaliDateTime
+
+register = template.Library()
 
 @register.inclusion_tag("website/includes/latest-news.html")
 def recent_news():
@@ -32,9 +30,6 @@ def footer():
     
 
 
-
-
-
-@register.inclusion_tag("contact.html")  
-def contact():   
-    return   
+@register.filter()
+def persianDate(date):
+    return JalaliDateTime(date).strftime("%Y/%m/%d")
