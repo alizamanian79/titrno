@@ -50,7 +50,9 @@
      <div class="flex">
     <a href="{% url 'website:new-delete' pk=new.id  %}" class=" m-1 p-3 rounded bg-[red] text-[white]">حذف</a>
     <a href="{% url 'website:new-update' pk=new.id  %}" class=" m-1 p-3 rounded bg-[black] text-[white]">ویرایش</a>
-    </div>
+    <a href="{% url 'website:new-detail' pk=new.id %}" class=" m-1 p-3 rounded bg-[orange] text-[white]">مشاهده</a>
+       
+</div>
 
 
     </div>
