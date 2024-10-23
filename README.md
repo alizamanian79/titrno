@@ -33,4 +33,4 @@ Feel free to reach out if you have any
 
 
 ### Contact
-You can send your message 
+You can send your message with contact form 
