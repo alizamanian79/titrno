@@ -1,9 +1,13 @@
 Project READMEWelcome to the Django application! This document will guide you through the initial setup, database configuration, and API endpoints.
 Installation Instructions###1. Install DependenciesEnsure you have a requirements.txt file in your project directory. To install the required packages, run the following command:bashpip install -r requirements.txt
-###2. Run MigrationsAfter installing the dependencies, set up your database schema by executing the following commands:bashpython manage.py makemigrationspython manage.py migrate
+###2. Run MigrationsAfter installing the dependencies, set up your database schema by executing the following commands:bash python manage.py makemigrationspython manage.py migrate
+
+
+###3. Run python manage.py createsuper user to work with admin in django
+
 
 API EndpointsThis Django application offers several API endpoints to interact with the news feature.
-News Endpoints- List News To retrieve a list of news articles, use the following endpoint: ```http GET /api/news/
+News Endpoints- List News To retrieve a list of news articles, use the following endpoint: ```http GET /
 ruby
 
 ### Landing Page- The application can be accessed at [http://127.0.0.1:8000/](http://127.0.0.1:8000/).- Features:  
@@ -26,3 +30,7 @@ ruby
 - **Update a News Article**: PUT [http://127.0.0.1:8000/api/news/update/<int:pk>/](http://127.0.0.1:8000/api/news/update/<int:pk>/)  
 
 Feel free to reach out if you have any
+
+
+### Contact
+You can send your message 
