@@ -13,9 +13,9 @@ urlpatterns = [
 
     
     # Crud News Api with CBV
-    path('manage/new/',views.NewsListView.as_view(),name="news-list"),
-    path('manage/new/detail/<int:pk>/',views.NewDetailView.as_view(),name="new-detail"),
-    path('manage/new/delete/<int:pk>/',views.NewDeleteView.as_view(),name="new-delete"),
-    path('manage/new/update/<int:pk>/',views.NewUpdateView.as_view(),name="new-update"),
-    path('manage/new/create/',views.NewCreateView.as_view(),name="new-create"),
+    path('api/new/',views.NewsListView.as_view(),name="news-list"),
+    path('api/new/detail/<int:pk>/',views.NewDetailView.as_view(),name="new-detail"),
+    path('api/new/delete/<int:pk>/',views.NewDeleteView.as_view(),name="new-delete"),
+    path('api/new/update/<int:pk>/',views.NewUpdateView.as_view(),name="new-update"),
+    path('api/new/create/',views.NewCreateView.as_view(),name="new-create"),
 ]

@@ -13,7 +13,7 @@
         <div class="md:col-span-2 ">
           
         
-          {% if searchNews %}
+          {% if searchNews.is_search %}
           
             <h2 class=" font-bold mb-2 text-3xl font-[yekanBakhtBold] text-right">نتیجه جستجو</h2> <br/>
           
@@ -22,7 +22,7 @@
                grid  gap-2 mb-5 md:grid-cols-3 lg:grid-cols-4 grid-cols-1"
             >
          
-            {% for item in searchNews %}
+            {% for item in searchNews.response %}
               <a href="{% url 'website:newpage' slug=item.slug %}" class="flex">
                 <div href="google.com" class="border border-gray-300 p-5">
                 <img
@@ -38,6 +38,10 @@
           {% endfor %}</div>
         
           {% else %}
+
+          
+
+
             <article>
             <img
               src="{{new.image.url}}"
@@ -58,7 +62,7 @@
               />
               <span class="text-xl font-[yekanBakht] text-left">{{new.journalist.username}}</span>
               <span class="mx-2">•</span>
-              <span>{{new.updated_at|persianDate}}</span>
+              <span>اخرین ویرایش : {{new.updated_at|persianDate}}</span>
             
             </div>
           </article>

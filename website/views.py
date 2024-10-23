@@ -46,11 +46,15 @@ def index_view(request,**kwargs):
 def newpage_view(request, slug=None):  
     categories=Category.objects.all()
 
-    searchNews = []  
+    searchNews = {"response":{},"is_search":False} 
     q = request.GET.get("q")  
 
     if q:  
-        searchNews = New.objects.filter(Q(title__icontains=q) | Q(description__icontains=q) | Q(slug__icontains=q))  
+        response=New.objects.filter(Q(title__icontains=q) | Q(description__icontains=q) | Q(slug__icontains=q))
+        searchNews = {"response":response,"is_search":True} 
+
+
+
 
     if request.method=="POST":
        contactus(request)
