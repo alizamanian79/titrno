@@ -6,7 +6,7 @@ register = template.Library()
 
 @register.inclusion_tag("website/includes/latest-news.html")
 def recent_news():
-    News=New.objects.filter(active=True).order_by("-updated_at")[:4]
+    News=New.objects.filter(active=True).order_by("-created_at")[:4]
     return {"News":News}
 
 

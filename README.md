@@ -1,63 +1,28 @@
-Django Project README## OverviewThis project is a Django web application designed to provide a platform for news articles and user account functionalities. It features an API for CRUD operations on news and account management.## PrerequisitesBefore you get started, ensure you have the following installed on your Virtual Machine (VM):
-Python3.x- Django- Virtualenv (optional but recommended for isolated environments)
-Installation1. Set up the Virtual Environment (optional but recommended):
-```bash virtualenv venv source venv/bin/activate # On Windows, use venv\Scripts\activate
+Project READMEWelcome to the Django application! This document will guide you through the initial setup, database configuration, and API endpoints.
+Installation Instructions###1. Install DependenciesEnsure you have a requirements.txt file in your project directory. To install the required packages, run the following command:bashpip install -r requirements.txt
+###2. Run MigrationsAfter installing the dependencies, set up your database schema by executing the following commands:bashpython manage.py makemigrationspython manage.py migrate
 
-markdown
+API EndpointsThis Django application offers several API endpoints to interact with the news feature.
+News Endpoints- List News To retrieve a list of news articles, use the following endpoint: ```http GET /api/news/
+ruby
 
-2. **Install Dependencies**:  
-Make sure you have a `requirements.txt` file in your project directory. Run:  
-```bash pip install -r requirements.txt ```  
+### Landing Page- The application can be accessed at [http://127.0.0.1:8000/](http://127.0.0.1:8000/).- Features:  
+- Search for articles using query parameters.  
+- View the four most recently published news articles.  
+- Click on tags or categories in the footer to explore related news.  
 
-3. **Run Migrations**:  
-After installing the requirements, run the following commands to set up your database:  
-```bash python manage.py makemigrations python manage.py migrate ```  
+### New Page- The New page functions similarly to the Landing page, providing additional dedicated access to news articles.  
 
-## API EndpointsThis Django application features the following API endpoints:  
+### Accounts Page and API- **Login** Access the login page at [http://127.0.0.1:8000/accounts/login](http://127.0.0.1:8000/accounts/login).  
+- **Logout** To log out, navigate to [http://127.0.0.1:8000/accounts/logout](http://127.0.0.1:8000/accounts/logout).  
 
-### News Endpoints- **List News**: ```http GET /api/new/  
-Retrieves a list of news articles.
+- **Signup** Create a new account at [http://127.0.0.1:8000/accounts/signup](http://127.0.0.1:8000/accounts/signup).  
 
-Retrieve News Detail:
-Retrieves detailed view of a specific news article by primary key (pk).
+### News Management- To manage news articles, use the following API endpoints:  
+- **Create a New Article**: POST to [http://127.0.0.1:8000/api/news/create/](http://127.0.0.1:8000/api/news/create/)  
+- **List All News Articles**: GET [http://127.0.0.1:8000/api/news/](http://127.0.0.1:8000/api/news/)  
+- **Retrieve a Specific News Article**: GET [http://127.0.0.1:8000/api/news/detail/<int:pk>/](http://127.0.0.1:8000/api/news/detail/<int:pk>/)  
+- **Delete a News Article**: DELETE [http://127.0.0.1:8000/api/news/delete/<int:pk>/](http://127.0.0.1:8000/api/news/delete/<int:pk>/)  
+- **Update a News Article**: PUT [http://127.0.0.1:8000/api/news/update/<int:pk>/](http://127.0.0.1:8000/api/news/update/<int:pk>/)  
 
-Delete News:
-Deletes a specific news article by primary key (pk).
-
-Update News:
-Updates a specific news article by primary key (pk).
-
-Create News:
-Creates a new news article.
-
-Account Endpoints- User Login:
-Authenticates a user.
-
-User Signup:
-Registers a new user.
-
-User Logout:
-Logs out the currently authenticated user.
-
-Other Views- Home Page:
-Renders the home page.
-
-Category Search:
-Searches news articles by category.
-
-Tag Search:
-Searches news articles by tags.
-
-Journalist Search:
-Searches news articles by journalist.
-
-New Page:
-Renders a new page based on the slug.
-
-Running the ApplicationOnce the migrations are completed, you can run the Django development server with:
-bashpython manage.py runserver
-You can then access the application at http://127.0.0.1:8000/.
-
-ContributingContributions are welcome! Please feel free to open issues or submit pull requests for improvements and new features.
-LicenseThis project is licensed under the MIT License - see the LICENSE file for details.
-Acknowledgements- Django for the framework- Any other contributors or libraries you wish to acknowledge
+Feel free to reach out if you have any
