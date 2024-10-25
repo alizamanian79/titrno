@@ -1,125 +1,147 @@
-{%load website_tags %}
-{%load static %}
-{% load humanizelib %}
-<!DOCTYPE html>  
-<html lang="en">  
-<head>  
-    <meta charset="UTF-8">  
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
-    <title>News Site Layout</title>  
-    <link href="{% static 'css/direction.css'%}" rel="stylesheet">
-    <!-- AOS CSS -->  
-    <link href="{% static 'css/aos.css'%}" rel="stylesheet">
-    <link href="{% static 'css/global.css'%}" rel="stylesheet">
-    
-    <script src="{% static 'js/tailwind.js'%}"></script>  
-   
+{%load website_tags %} {%load static %} {% load humanizelib %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>تیترنو</title>
+    <link rel="icon" href="{%static 'titrno.png' %}" type="image/x-icon">  
+    <link href="{% static 'css/direction.css'%}" rel="stylesheet" />
+    <!-- AOS CSS -->
+    <link href="{% static 'css/aos.css'%}" rel="stylesheet" />
+    <link href="{% static 'css/global.css'%}" rel="stylesheet" />
+
+    <script src="{% static 'js/tailwind.js'%}"></script>
 
     <!-- Link to page by function-->
-    <script>  
-        function navigateToPage() {  
-            const selectElement = document.getElementById('pageSelect');  
-            const selectedValue = selectElement.value;  
-            if (selectedValue) {  
-                window.location.href = selectedValue;  
-            }  
-        }  
-    </script>  
+  </head>
+  <body class="relative font-sans">
+    <!-- Menu -->
+    <div
+      class="fixed top-0 z-[10] w-[100%] h-[auto] bg-[#F3F4F6] overflow-y-auto fixed top-[0] z-[20]"
+    >
+      <header
+        class="flex justify-between items-center p-4 bg-gray-100 shadow-md transition delay-75"
+      >
+        <div class="text-xl font-bold text-gray-800">
+          <img src="{%static 'titrno.png' %}" class="w-[40px] h-[auto]" />
+        </div>
 
-
-</head>  
-<body class="relative font-sans " > 
-
-
-     <!-- Menu -->
-     <div class="fixed top-0 z-[10] w-[100%] h-[auto] bg-[#F3F4F6] overflow-y-auto fixed top-[0] z-[20]" >
-
-        <header class="flex justify-between items-center p-4 bg-gray-100 shadow-md transition delay-75">
-            
-            <div class="text-xl font-bold text-gray-800">
-                <img src="{%static 'titrno.png' %}" class="w-[40px] h-[auto]"/>
-            </div>
-
-
-             <nav class="hidden md:flex space-x-4 ">
-
-          
-                 <select class="hover:text-[#EF4444] text-[black] uppercase  font-bold outline-none bg-[transparent] text-[19px] font-[yekanBakhtBold] text-right"
-                  id="pageSelect" onchange="navigateToPage()">  
-                    <option value=" p-3 font-[yekanBakht]" disable class="" >خبرها</option> 
-                    {% for cat in categories %}
-                    <option class=" p-3 font-[yekanBakht]" value="{% url 'website:search_category' cat=cat.title %}">{{cat.title}}</option> 
-                     {% endfor %} 
-                </select>  
-
-
-                {%if request.user.is_authenticated%}
-                <a href="{% url 'accounts:logout' %}" class="hover:text-[#EF4444] text-gray-800 uppercase  font-bold text-[19px] font-[yekanBakhtBold] text-right">خروج از حساب</a>
-                 <a href="#" class="hover:text-[#EF4444] text-gray-800 uppercase  font-bold font-bold text-[19px] font-[yekanBakhtBold] text-right ">{{request.user.username}}</a>
-               {% else %}
-               <a href="{% url 'accounts:login' %}" class="hover:text-[#EF4444] text-gray-800 uppercase font-bold font-bold text-[19px] font-[yekanBakhtBold] text-right">ورود</a>
-               <a href="{% url 'accounts:signup' %}" class="hover:text-[#EF4444] text-gray-800 uppercase  font-bold font-bold text-[19px] font-[yekanBakhtBold] text-right">عضویت</a>
-               {% endif %}
-
-
-                </nav>
-             <button class="md:hidden text-2xl" id="menu-toggle">
-                 <!-- Hamburger icon -->
-                 <span id="hamburger-icon" class="block">☰</span>
-                 <!-- Close icon -->
-                 <span id="close-icon" class="hidden">×</span>
-             </button>
-         </header>
-     
-         <nav class="hidden overflow-y-auto
-         flex-wrap flex-col items-center  font-bold text-[19px] font-[yekanBakhtBold] text-right
-          bg-gray-100 p-4 md:hidden  h-[100vh]" id="mobile-nav">
-            
-        
-           
-             {%if request.user.is_authenticated%}
-             <h1 class="flex justify-end text-2xl text-red-500 mb-1 font-[yekanBakhtBold]">پروفایل</h1>
-             <a href="{% url 'accounts:logout' %}" class="hover:text-[#EF4444] text-gray-800 uppercase text-sm  h">logout</a>
-            <br>
-              <a href="#" class="hover:text-[#EF4444] text-gray-800 uppercase text-sm  h">{{request.user.username}}</a>
-            {% else %}
-            <a href="{% url 'accounts:login' %}" class="hover:text-[#EF4444] text-gray-800 uppercase text-sm  h">Login</a>
-            <br>
-            <a href="{% url 'accounts:signup' %}" class="hover:text-[#EF4444] text-gray-800 uppercase text-sm  h">SignUp</a>
-            {% endif %}
-            <br/>
-            <br/>
-            <h2 class="flex justify-end text-2xl text-red-500 mb-1 font-[yekanBakhtBold]">دسته بندی</h2>
-           
-          
+        <nav class="hidden md:flex space-x-4">
+          <select
+            class="hover:text-[#EF4444] text-[black] uppercase font-bold outline-none bg-[transparent] text-[19px] font-[yekanBakhtBold] text-right"
+            id="pageSelect"
+            onchange="navigateToPage()"
+          >
+            <option value=" p-3 font-[yekanBakht]" disable class="">
+              خبرها
+            </option>
             {% for cat in categories %}
-             <a href="{% url 'website:search_category' cat=cat.title %}" class="hover:text-[#EF4444] text-gray-800 uppercase text-sm  h">{{cat.title}}</a>
-             <br>
+            <option
+              class="p-3 font-[yekanBakht]"
+              value="{% url 'website:search_category' cat=cat.title %}"
+            >
+              {{cat.title}}
+            </option>
             {% endfor %}
-        
-          
+          </select>
+
+          {%if request.user.is_authenticated%}
+          <a
+            href="{% url 'accounts:logout' %}"
+            class="hover:text-[#EF4444] text-gray-800 uppercase font-bold text-[19px] font-[yekanBakhtBold] text-right"
+            >خروج از حساب</a
+          >
+          <a
+            href="#"
+            class="hover:text-[#EF4444] text-gray-800 uppercase font-bold font-bold text-[19px] font-[yekanBakhtBold] text-right"
+            >{{request.user.username}}</a
+          >
+          {% else %}
+          <a
+            href="{% url 'accounts:login' %}"
+            class="hover:text-[#EF4444] text-gray-800 uppercase font-bold font-bold text-[19px] font-[yekanBakhtBold] text-right"
+            >ورود</a
+          >
+          <a
+            href="{% url 'accounts:signup' %}"
+            class="hover:text-[#EF4444] text-gray-800 uppercase font-bold font-bold text-[19px] font-[yekanBakhtBold] text-right"
+            >عضویت</a
+          >
+          {% endif %}
         </nav>
-     
-     
-         </div>
-      
-        
-         <!-- Menu -->  
-{% include "message.html" %}
+        <button class="md:hidden text-2xl" id="menu-toggle">
+          <!-- Hamburger icon -->
+          <span id="hamburger-icon" class="block">☰</span>
+          <!-- Close icon -->
+          <span id="close-icon" class="hidden">×</span>
+        </button>
+      </header>
 
-{% block content %}
+      <nav
+        class="hidden overflow-y-auto flex-wrap flex-col items-center font-bold text-[19px] font-[yekanBakhtBold] text-right bg-gray-100 p-4 md:hidden h-[100vh]"
+        id="mobile-nav"
+      >
+        {%if request.user.is_authenticated%}
+        <h1
+          class="flex justify-end text-2xl text-red-500 mb-2 font-[yekanBakhtBold]"
+        >
+          پروفایل
+        </h1>
 
-{% endblock content %}
+        <a
+          href="#"
+          class="hover:text-[#EF4444] text-gray-800 uppercase text-sm h"
+          >{{request.user.username}}</a
+        >
 
+        <br />
+        <a
+          href="{% url 'accounts:logout' %}"
+          class="hover:text-[#EF4444] text-gray-800 uppercase text-sm h"
+          >logout</a
+        >
+        {% else %}
+        <a
+          href="{% url 'accounts:login' %}"
+          class="hover:text-[#EF4444] text-gray-800 uppercase text-sm h"
+          >Login</a
+        >
+        <br />
+        <a
+          href="{% url 'accounts:signup' %}"
+          class="hover:text-[#EF4444] text-gray-800 uppercase text-sm h"
+          >SignUp</a
+        >
+        {% endif %}
+        <br />
+        <br />
+        <h2
+          class="flex justify-end text-2xl text-red-500 mb-1 font-[yekanBakhtBold]"
+        >
+          دسته بندی
+        </h2>
 
+        {% for cat in categories %}
+        <a
+          href="{% url 'website:search_category' cat=cat.title %}"
+          class="hover:text-[#EF4444] text-gray-800 uppercase text-sm h"
+          >{{cat.title}}</a
+        >
+        <br />
+        {% endfor %}
+      </nav>
+    </div>
 
-{% include "contact.html"  %}
-{% footer%}
+    <!-- Menu -->
+    {% include "message.html" %} {% block content %} {% endblock content %}
+    {% include "contact.html" %} 
+    
+    {% footer%}
 
-
-<script  src="{% static 'js/menu.js '%}"></script>  
-<script  src="{% static 'js/aos.js' %}"></script>  
-<script type="text/javascript" src="{% static 'js/global.js' %}"></script>  
-
-</body>  
+    <script src="{% static 'js/menu.js '%}"></script>
+    <script src="{% static 'js/aos.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/global.js' %}"></script>
+   
+  </body>
 </html>
