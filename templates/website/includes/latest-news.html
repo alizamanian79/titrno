@@ -16,7 +16,7 @@
       <h4 class="text-l font-semibold font-[yekanBakhtBold]">
         {{new.title|truncatewords:5}}
       </h4>
-      <p class="text-sm text-gray-500 font-[yekanBakht]">publish in {{new.created_at }}</p>
+      <p class="text-sm text-gray-500 font-[yekanBakht]"> تاریخ نشر: {{new.created_at|persianDate}}</p>
     </div>
   </li></a>{% endfor %}
   <!-- Add more news items here -->

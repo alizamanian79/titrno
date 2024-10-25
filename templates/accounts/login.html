@@ -1,3 +1,6 @@
+{%load website_tags %}
+ {%load static %} 
+ {% load humanizelib %}
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,40 +12,51 @@
 
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
+  <title>تیترنو</title>
+  <link rel="icon" href="{%static 'titrno.png' %}" type="image/x-icon">  
+  <link href="{% static 'css/direction.css'%}" rel="stylesheet" />
+  <!-- AOS CSS -->
+  <link href="{% static 'css/aos.css'%}" rel="stylesheet" />
+  <link href="{% static 'css/global.css'%}" rel="stylesheet" />
+
+  <script src="{% static 'js/tailwind.js'%}"></script>
   <script src="https://cdn.tailwindcss.com"></script>
 
   {%include 'message.html' %}
 
-  <div class="flex flex-col md:flex-row h-screen justify-center items-center w-[100%] bg-red-500 md:bg-[white]">
+  <div class="flex flex-col md:flex-row h-screen justify-center items-center w-[100%] bg-[black] md:bg-[white]">
     <!-- Left Section -->
-    <div class="hidden md:w-1/2 md:bg-red-500 h-[100%]  md:flex justify-center items-center text-white p-10">
+    <div class="hidden 
+    md:w-1/2 md:bg-[black] h-[100%] flex-col  md:flex justify-center items-center text-white p-10">
+    
+    <img src="{% static 'titrno.png' %}" class="w-[150px] h-[150px] objects-covered" />
+    
       <div>
-        <h1 class="text-4xl font-bold mb-4">Let's Kick Now!</h1>
-        <p>Kick your ideas to life in less than 30 seconds.</p>
+        <h1 class="text-4xl font-bold mb-4" class="font-[yekanBakht]">همین حالا شروع کن!</h1>
+        <p class="font-[yekanBakht]">به وبسایت خبری تیترنو خوش امدید</p>
       </div>
     </div>
 
     <!-- Right Section -->
     <div class="w-[100%] md:w-1/2 bg-[transparent] flex justify-center items-center p-10">
       <div class="bg-white rounded-lg shadow-lg w-full max-w-md p-8">
-        <h2 class="text-2xl font-semibold text-center mb-6">Sign In</h2>
+        <h2 class="text-2xl font-semibold text-center mb-6 font-[yekanBakhtBold]">ورود</h2>
 
 
-         <form method="POST" action="{% url 'accounts:login' %}">
+         <form method="POST" action="{% url 'accounts:login' %}" class="text-right">
           {% csrf_token %}
           <div class="mb-4">
-            <label for="name" class="block mb-2 text-gray-700">Username</label>
-            <input type="text" name="username" id="name" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500" placeholder="Your Username" required>
+            <label for="name" class="block mb-2 text-gray-700 font-[yekanBakhtBold]">نام کاربری</label>
+            <input type="text" name="username" id="name" class="font-[yekanBakht] w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 font-[yekanBakht]" placeholder="نام کاربری خود را وارد کنید " required>
           </div>
           <div class="mb-4">
-            <label for="email" class="block mb-2 text-gray-700">Password</label>
-            <input type="password" name="password" id="email" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500" placeholder="Your Password">
+            <label for="email" class="block mb-2 text-gray-700 font-[yekanBakhtBold]">کلمه عبور</label>
+            <input type="password" name="password" id="email" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 font-[yekanBakht]" placeholder="کلمه عبور خود را وارد کنید">
           </div>
         
           <button type="submit"
-           class="w-full bg-red-500 text-white py-2 rounded-lg hover:bg-red-600 transition duration-300">
-           Sign In</button>
+           class="font-[yekanBakht] w-full bg-red-500 text-white py-2 rounded-lg hover:bg-red-600 transition duration-300">
+           ورود</button>
         </form> 
 
 
@@ -50,8 +64,8 @@
 
 
         <div class="text-center mt-4">
-          <p class="text-gray-600">Dont you have account?
-             <a href="{% url 'accounts:signup' %}" class="text-red-500 hover:underline">Sign up</a></p>
+          <p class="text-gray-600 font-[yekanBakhtBold]">حساب کاربری ندارید ؟
+             <a href="{% url 'accounts:signup' %}" class="text-red-500 hover:underline font-[yekanBakhtBold] ">ایجاد حساب</a></p>
         </div>
       </div>
     </div>
