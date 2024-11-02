@@ -6,7 +6,12 @@
         display: flex;
         justify-content: space-between;
     }
+
+
+
+
 </style>
+
 <div class="max-w-[100%] mx-auto h-[auto] py-2
  flex flex-col mt-[3rem]  justify-center items-center">  
 
@@ -83,7 +88,7 @@
         
 <!-- News -->
          <div class= "w-[100%] md:w-[55%] lg:w-[70%] md:p-0 px-3
-           grid  gap-2 mb-5 lg:grid-cols-3 md:grid-cols-3
+           grid  gap-2 mb-5 lg:grid-cols-3 md:grid-cols-2
             grid-cols-1 justify-center align-items relative" style="direction:rtl">  
              
            {% if news %}  
@@ -118,14 +123,20 @@
          
        {% endif %}
 
-       
+  
+     
 
 
 </div>  
 
-
+  {%include "aboutus.html" %}
 
 </section> 
+
+
+
+
+
 
 
 
