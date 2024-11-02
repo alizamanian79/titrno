@@ -24,8 +24,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-*2c^jg1z--5@^u-k1&*4y4beo&n+l^^7t*rk!oy@#r8*5s%drk'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
-ALLOWED_HOSTS = ['*','https://www.linkedin.com','alizamanian79.pythonanywhere.com','titreno.liara.run','0.0.0.0','127.0.0.1']
+DEBUG = True
+ALLOWED_HOSTS = ['*','alizamanian79.pythonanywhere.com','titreno.liara.run','0.0.0.0','127.0.0.1']
 
 
 
@@ -121,18 +121,18 @@ USE_TZ = True
 
 
 STATIC_URL = '/static/'  
-MEDIA_URL = '/media/'  
+MEDIA_URL = '/media/'
 
-# Configure static files  
-if DEBUG:  
-    STATICFILES_DIRS = [  
-        os.path.join(BASE_DIR, 'static'),  # Where your project-specific static files live  
-    ]  
-else:  
-    STATIC_ROOT = os.path.join(BASE_DIR, 'static')  # Where collected static files will be stored  
 
-# Configure media files  
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')  # Where uploaded media files will be stored  
+if DEBUG:
+
+    STATICFILES_DIRS = [os.path.join(BASE_DIR, 'staticfiles')]
+
+else:
+
+    STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 
 # Default primary key field type
