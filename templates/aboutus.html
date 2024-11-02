@@ -1,0 +1,195 @@
+{% load static %}
+
+<style>
+.hidden {
+    display: none;
+  }
+  .border{
+    border-color:#d1d5db ;
+  }
+  .border-green{
+    border-color:#2dd4bf ;
+  }
+</style>
+
+<div class="h-screen flex flex-wrap justify-center items-center">
+    <div class="w-[80%] h-[10%] flex justify-center items-center relative">
+      <div class="text-[20px] text-[37px] md:text-[45px] font-bold text-center mx-2">توسعه</div>
+      <div class="text-[20px] text-[37px] md:text-[45px] font-bold text-center mx-2 ">تیم
+  </div>
+      <div class="text-[20px] text-[37px] md:text-[45px] font-bold text-center mx-2">اعضا</div>
+
+      <span class="bg-[#2dd4bf] w-[80px] h-[3px] rounded absolute top-[5rem] right-[37%] md:right-[45%] "></span>
+    </div>
+
+    <div
+      class="w-[87%] lg:w-[85%] xl:w-[75%] 2xl:w-[70%] h-[60%] flex flex-wrap justify-center xl:justify-between items-center"
+    >
+      
+      <!-- Card -->
+      <div
+        class="card w-[310px]  h-[600px] flex flex-wrap justify-center items-center overflow-y-hidden relative mx-[25px]  xl:mx-[0px]"
+        onmouseover="showIcons(event)"
+        onmouseout="hideIcons(event)"
+      >
+        <div
+          class=" w-[274px] h-[307px] absolute top-[7px] overflow-hidden"
+        >
+          <img src="../image/image1.jpg" alt="" />
+        </div>
+        <div
+          class="min-w-[200px] h-[20px] flex top-[200px] xl:top-[250px] z-10 absolute justify-center show hidden"
+        >
+          <div class="w-[70%] flex flex-wrap items-end justify-between">
+            <a class="bg-white w-[35px] h-[35px] flex justify-center items-center rounded-full"
+              ><img
+              class="w-[18px] h-[18px]"
+               
+                src="{% static 'logo/gmail.jpg' %}"
+                alt="linkedin"
+            /></a>
+            <a class="bg-white w-[35px] h-[35px] flex justify-center items-center rounded-full"
+              ><img
+              class="w-[18px] h-[18px]"
+                src="../image/linkedin.jpg"
+                alt="linkedin"
+            /></a>
+            <a class="bg-white w-[35px] h-[35px] flex justify-center items-center rounded-full"
+              ><img
+              class="w-[18px] h-[18px]"
+                src="../image/telegram.jpg"
+                alt="linkedin"
+            /></a>
+          </div>
+        </div>
+        <div
+          class="w-[310px] h-[252px] flex flex-wrap justify-center items-end border-2 border"
+        >
+          <div class="w-[100%] h-[70px] flex flex-wrap justify-center mb-3">
+            <h1 class="w-[70%] h-[30%] text-center font-bold">نام نام خانوادگی</h1>
+            <p class="w-[70%] h-[30%] text-[#9ca3af] text-center ">
+           زمینه توسعه
+            </p>
+          </div>
+        </div>
+      </div>
+      <!-- End Card -->
+      <!-- Card -->
+      <div
+        class="card w-[310px]  h-[600px] flex flex-wrap justify-center items-center overflow-y-hidden relative mx-[25px]  xl:mx-[0px]"
+        onmouseover="showIcons(event)"
+        onmouseout="hideIcons(event)"
+      >
+        <div
+          class=" w-[274px] h-[307px] absolute top-[7px] overflow-hidden"
+        >
+          <img src="../image/image1.jpg" alt="" />
+        </div>
+        <div
+          class="min-w-[200px] h-[20px] flex top-[200px] xl:top-[250px] z-10 absolute justify-center show hidden"
+        >
+          <div class="w-[70%] flex flex-wrap items-end justify-between">
+            <a class="bg-white w-[35px] h-[35px] flex justify-center items-center rounded-full"
+              ><img
+              class="w-[18px] h-[18px]"
+               
+                src="../image/gmail.jpg"
+                alt="linkedin"
+            /></a>
+            <a class="bg-white w-[35px] h-[35px] flex justify-center items-center rounded-full"
+              ><img
+              class="w-[18px] h-[18px]"
+                src="../image/linkedin.jpg"
+                alt="linkedin"
+            /></a>
+            <a class="bg-white w-[35px] h-[35px] flex justify-center items-center rounded-full"
+              ><img
+              class="w-[18px] h-[18px]"
+                src="../image/telegram.jpg"
+                alt="linkedin"
+            /></a>
+          </div>
+        </div>
+        <div
+          class="w-[310px] h-[252px] flex flex-wrap justify-center items-end border-2 border"
+        >
+          <div class="w-[100%] h-[70px] flex flex-wrap justify-center mb-3">
+            <h1 class="w-[70%] h-[30%] text-center font-bold">نام نام خانوادگی</h1>
+            <p class="w-[70%] h-[30%] text-[#9ca3af] text-center ">
+           زمینه توسعه
+            </p>
+          </div>
+        </div>
+      </div>
+      <!-- End Card -->
+       <!-- Card -->
+      <div
+      class="card w-[310px]  h-[600px] flex flex-wrap justify-center items-center overflow-y-hidden relative mx-[25px]  xl:mx-[0px]"
+      onmouseover="showIcons(event)"
+      onmouseout="hideIcons(event)"
+    >
+      <div
+        class=" w-[274px] h-[307px] absolute top-[7px] overflow-hidden"
+      >
+        <img src="../image/image1.jpg" alt="" />
+      </div>
+      <div
+        class="min-w-[200px] h-[20px] flex top-[200px] xl:top-[250px] z-10 absolute justify-center show hidden"
+      >
+        <div class="w-[70%] flex flex-wrap items-end justify-between">
+          <a class="bg-white w-[35px] h-[35px] flex justify-center items-center rounded-full"
+            ><img
+            class="w-[18px] h-[18px]"
+             
+              src="../image/gmail.jpg"
+              alt="linkedin"
+          /></a>
+          <a class="bg-white w-[35px] h-[35px] flex justify-center items-center rounded-full"
+            ><img
+            class="w-[18px] h-[18px]"
+              src="../image/linkedin.jpg"
+              alt="linkedin"
+          /></a>
+          <a class="bg-white w-[35px] h-[35px] flex justify-center items-center rounded-full"
+            ><img
+            class="w-[18px] h-[18px]"
+              src="../image/telegram.jpg"
+              alt="linkedin"
+          /></a>
+        </div>
+      </div>
+      <div
+        class="w-[310px] h-[252px] flex flex-wrap justify-center items-end border-2 border"
+      >
+        <div class="w-[100%] h-[70px] flex flex-wrap justify-center mb-3">
+          <h1 class="w-[70%] h-[30%] text-center font-bold">نام نام خانوادگی</h1>
+          <p class="w-[70%] h-[30%] text-[#9ca3af] text-center ">
+         زمینه توسعه
+          </p>
+        </div>
+      </div>
+    </div>
+    <!-- End Card -->
+     
+    </div>
+</div>
+
+
+
+  <script>
+    function showIcons(event) {
+      const item = event.currentTarget.querySelector(".show");
+      item.classList.remove("hidden");
+      const itemBorder=event.currentTarget.querySelector('.border')
+      itemBorder.classList.remove('border')
+      itemBorder.classList.add('border-green')
+    }
+
+    function hideIcons(event) {
+      const item = event.currentTarget.querySelector(".show");
+      item.classList.add("hidden");
+      const itemBorder=event.currentTarget.querySelector('.border-green')
+      itemBorder.classList.remove('border-green')
+      itemBorder.classList.add('border')
+    }
+  </script>
