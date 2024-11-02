@@ -1,195 +1,97 @@
 {% load static %}
 
-<style>
-.hidden {
-    display: none;
-  }
-  .border{
-    border-color:#d1d5db ;
-  }
-  .border-green{
-    border-color:#2dd4bf ;
-  }
-</style>
+<div class="w-[100%] h-[auto] py-[2rem]  bg-[black] font-[yekanBakht] flex flex-col justify-center items-center">
 
-<div class="h-screen flex flex-wrap justify-center items-center">
-    <div class="w-[80%] h-[10%] flex justify-center items-center relative">
-      <div class="text-[20px] text-[37px] md:text-[45px] font-bold text-center mx-2">توسعه</div>
-      <div class="text-[20px] text-[37px] md:text-[45px] font-bold text-center mx-2 ">تیم
-  </div>
-      <div class="text-[20px] text-[37px] md:text-[45px] font-bold text-center mx-2">اعضا</div>
+<!--Title section-->
+<div class="w-[100%] h-[auto] relative flex text-[white] justify-center items-center">
+<p class="text-[60px]">اعضا تیم توسعه</p>  
+<span class="bg-red-500 w-[150px] h-[4px] rounded absolute bottom-[-1.3rem]"></span>  
+</div>
 
-      <span class="bg-[#2dd4bf] w-[80px] h-[3px] rounded absolute top-[5rem] right-[37%] md:right-[45%] "></span>
+
+<!--Card section-->
+<div class="md:w-[90%] w-[100%] h-[auto]  mt-[15rem] flex flex-wrap">
+
+<!--Grid-->
+<div class="w-[100%] md:w-[50%] lg:w-[33%] md:mt-[0] mt-[2rem]  h-[430px]  flex justify-center items-center">
+    <!--Card-->
+    <div class="w-[80%] md:w-[75%] h-[65%] md:h-[80%] py-2 border-[2px] flex justify-end flex-col items-center relative">
+        
+        <!--Image-->
+        <img src="{% static 'aboutus/linkedinAli.jfif' %}" class="w-[auto] md:h-[330px] h-[270px] absolute top-[-10rem]  object-cover" />
+        
+        <!--Icons-->
+        <div class="w-[50%] flex justify-around items-center absolute top-[8rem]  md:top-[11.5rem]">
+            <a href="mailto:your-email@gmail.com" class="md:w-[45px] md:h-[45px] w-[37px] h-[37px] rounded-[100%] bg-[white] flex justify-center items-center"><img src="{% static 'logo/gmail.jpg' %}" class=" w-[auto] h-[45%] md:h-[50%]"/></a>
+            <a href="mailto:your-email@gmail.com" class="md:w-[45px] md:h-[45px] w-[37px] h-[37px] rounded-[100%] bg-[white] flex justify-center items-center"><img src="{% static 'logo/linkedin.jpg' %}" class=" w-[auto] h-[45%] md:h-[50%]"/></a>
+            <a href="mailto:your-email@gmail.com" class="md:w-[45px] md:h-[45px] w-[37px] h-[37px] rounded-[100%] bg-[white] flex justify-center items-center"><img src="{% static 'logo/telegram.jpg' %}" class=" w-[auto] h-[45%] md:h-[50%]"/></a>
+        </div>
+
+        <div class='w-[100%] h-[44%] md:h-[23%]  py-1 md:py-3 flex justify-center flex-col text-center'>
+           <p class="font-[yekanBakhtBold] text-[31px] text-[white]">علی زمانیان</p>
+           <p class="font-[yekanBakht] text-[19px] text-[white]"> Full-Stack Developer </p>
+        </div>
+
     </div>
 
-    <div
-      class="w-[87%] lg:w-[85%] xl:w-[75%] 2xl:w-[70%] h-[60%] flex flex-wrap justify-center xl:justify-between items-center"
-    >
-      
-      <!-- Card -->
-      <div
-        class="card w-[310px]  h-[600px] flex flex-wrap justify-center items-center overflow-y-hidden relative mx-[25px]  xl:mx-[0px]"
-        onmouseover="showIcons(event)"
-        onmouseout="hideIcons(event)"
-      >
-        <div
-          class=" w-[274px] h-[307px] absolute top-[7px] overflow-hidden"
-        >
-          <img src="../image/image1.jpg" alt="" />
+</div>
+
+
+<!--Grid-->
+<div class="w-[100%] md:w-[50%] lg:w-[33%] md:mt-[0] mt-[2rem]  h-[430px]  flex justify-center items-center">
+    <!--Card-->
+    <div class="w-[80%] md:w-[75%] h-[65%] md:h-[80%] py-2 border-[2px] flex justify-end flex-col items-center relative">
+        
+        <!--Image-->
+        <img src="{% static 'aboutus/linkedinAli.jfif' %}" class="w-[auto] md:h-[330px] h-[270px] absolute top-[-10rem]  object-cover" />
+        
+        <!--Icons-->
+        <div class="w-[50%] flex justify-around items-center absolute top-[8rem]  md:top-[11.5rem]">
+            <a href="mailto:your-email@gmail.com" class="md:w-[45px] md:h-[45px] w-[37px] h-[37px] rounded-[100%] bg-[white] flex justify-center items-center"><img src="{% static 'logo/gmail.jpg' %}" class=" w-[auto] h-[45%] md:h-[50%]"/></a>
+            <a href="mailto:your-email@gmail.com" class="md:w-[45px] md:h-[45px] w-[37px] h-[37px] rounded-[100%] bg-[white] flex justify-center items-center"><img src="{% static 'logo/linkedin.jpg' %}" class=" w-[auto] h-[45%] md:h-[50%]"/></a>
+            <a href="mailto:your-email@gmail.com" class="md:w-[45px] md:h-[45px] w-[37px] h-[37px] rounded-[100%] bg-[white] flex justify-center items-center"><img src="{% static 'logo/telegram.jpg' %}" class=" w-[auto] h-[45%] md:h-[50%]"/></a>
         </div>
-        <div
-          class="min-w-[200px] h-[20px] flex top-[200px] xl:top-[250px] z-10 absolute justify-center show hidden"
-        >
-          <div class="w-[70%] flex flex-wrap items-end justify-between">
-            <a class="bg-white w-[35px] h-[35px] flex justify-center items-center rounded-full"
-              ><img
-              class="w-[18px] h-[18px]"
-               
-                src="{% static 'logo/gmail.jpg' %}"
-                alt="linkedin"
-            /></a>
-            <a class="bg-white w-[35px] h-[35px] flex justify-center items-center rounded-full"
-              ><img
-              class="w-[18px] h-[18px]"
-                src="../image/linkedin.jpg"
-                alt="linkedin"
-            /></a>
-            <a class="bg-white w-[35px] h-[35px] flex justify-center items-center rounded-full"
-              ><img
-              class="w-[18px] h-[18px]"
-                src="../image/telegram.jpg"
-                alt="linkedin"
-            /></a>
-          </div>
+
+        <div class='w-[100%] h-[44%] md:h-[23%]  py-1 md:py-3 flex justify-center flex-col text-center'>
+           <p class="font-[yekanBakhtBold] text-[31px] text-[white]">علی زمانیان</p>
+           <p class="font-[yekanBakht] text-[19px] text-[white]"> Full-Stack Developer </p>
         </div>
-        <div
-          class="w-[310px] h-[252px] flex flex-wrap justify-center items-end border-2 border"
-        >
-          <div class="w-[100%] h-[70px] flex flex-wrap justify-center mb-3">
-            <h1 class="w-[70%] h-[30%] text-center font-bold">نام نام خانوادگی</h1>
-            <p class="w-[70%] h-[30%] text-[#9ca3af] text-center ">
-           زمینه توسعه
-            </p>
-          </div>
-        </div>
-      </div>
-      <!-- End Card -->
-      <!-- Card -->
-      <div
-        class="card w-[310px]  h-[600px] flex flex-wrap justify-center items-center overflow-y-hidden relative mx-[25px]  xl:mx-[0px]"
-        onmouseover="showIcons(event)"
-        onmouseout="hideIcons(event)"
-      >
-        <div
-          class=" w-[274px] h-[307px] absolute top-[7px] overflow-hidden"
-        >
-          <img src="../image/image1.jpg" alt="" />
-        </div>
-        <div
-          class="min-w-[200px] h-[20px] flex top-[200px] xl:top-[250px] z-10 absolute justify-center show hidden"
-        >
-          <div class="w-[70%] flex flex-wrap items-end justify-between">
-            <a class="bg-white w-[35px] h-[35px] flex justify-center items-center rounded-full"
-              ><img
-              class="w-[18px] h-[18px]"
-               
-                src="../image/gmail.jpg"
-                alt="linkedin"
-            /></a>
-            <a class="bg-white w-[35px] h-[35px] flex justify-center items-center rounded-full"
-              ><img
-              class="w-[18px] h-[18px]"
-                src="../image/linkedin.jpg"
-                alt="linkedin"
-            /></a>
-            <a class="bg-white w-[35px] h-[35px] flex justify-center items-center rounded-full"
-              ><img
-              class="w-[18px] h-[18px]"
-                src="../image/telegram.jpg"
-                alt="linkedin"
-            /></a>
-          </div>
-        </div>
-        <div
-          class="w-[310px] h-[252px] flex flex-wrap justify-center items-end border-2 border"
-        >
-          <div class="w-[100%] h-[70px] flex flex-wrap justify-center mb-3">
-            <h1 class="w-[70%] h-[30%] text-center font-bold">نام نام خانوادگی</h1>
-            <p class="w-[70%] h-[30%] text-[#9ca3af] text-center ">
-           زمینه توسعه
-            </p>
-          </div>
-        </div>
-      </div>
-      <!-- End Card -->
-       <!-- Card -->
-      <div
-      class="card w-[310px]  h-[600px] flex flex-wrap justify-center items-center overflow-y-hidden relative mx-[25px]  xl:mx-[0px]"
-      onmouseover="showIcons(event)"
-      onmouseout="hideIcons(event)"
-    >
-      <div
-        class=" w-[274px] h-[307px] absolute top-[7px] overflow-hidden"
-      >
-        <img src="../image/image1.jpg" alt="" />
-      </div>
-      <div
-        class="min-w-[200px] h-[20px] flex top-[200px] xl:top-[250px] z-10 absolute justify-center show hidden"
-      >
-        <div class="w-[70%] flex flex-wrap items-end justify-between">
-          <a class="bg-white w-[35px] h-[35px] flex justify-center items-center rounded-full"
-            ><img
-            class="w-[18px] h-[18px]"
-             
-              src="../image/gmail.jpg"
-              alt="linkedin"
-          /></a>
-          <a class="bg-white w-[35px] h-[35px] flex justify-center items-center rounded-full"
-            ><img
-            class="w-[18px] h-[18px]"
-              src="../image/linkedin.jpg"
-              alt="linkedin"
-          /></a>
-          <a class="bg-white w-[35px] h-[35px] flex justify-center items-center rounded-full"
-            ><img
-            class="w-[18px] h-[18px]"
-              src="../image/telegram.jpg"
-              alt="linkedin"
-          /></a>
-        </div>
-      </div>
-      <div
-        class="w-[310px] h-[252px] flex flex-wrap justify-center items-end border-2 border"
-      >
-        <div class="w-[100%] h-[70px] flex flex-wrap justify-center mb-3">
-          <h1 class="w-[70%] h-[30%] text-center font-bold">نام نام خانوادگی</h1>
-          <p class="w-[70%] h-[30%] text-[#9ca3af] text-center ">
-         زمینه توسعه
-          </p>
-        </div>
-      </div>
+
     </div>
-    <!-- End Card -->
-     
-    </div>
+
 </div>
 
 
 
-  <script>
-    function showIcons(event) {
-      const item = event.currentTarget.querySelector(".show");
-      item.classList.remove("hidden");
-      const itemBorder=event.currentTarget.querySelector('.border')
-      itemBorder.classList.remove('border')
-      itemBorder.classList.add('border-green')
-    }
+<!--Grid-->
+<div class="w-[100%] md:w-[50%] lg:w-[33%] md:mt-[0] mt-[2rem]  h-[430px]  flex justify-center items-center">
+    <!--Card-->
+    <div class="w-[80%] md:w-[75%] h-[65%] md:h-[80%] py-2 border-[2px] flex justify-end flex-col items-center relative">
+        
+        <!--Image-->
+        <img src="{% static 'aboutus/linkedinAli.jfif' %}" class="w-[auto] md:h-[330px] h-[270px] absolute top-[-10rem]  object-cover" />
+        
+        <!--Icons-->
+        <div class="w-[50%] flex justify-around items-center absolute top-[8rem]  md:top-[11.5rem]">
+            <a href="mailto:your-email@gmail.com" class="md:w-[45px] md:h-[45px] w-[37px] h-[37px] rounded-[100%] bg-[white] flex justify-center items-center"><img src="{% static 'logo/gmail.jpg' %}" class=" w-[auto] h-[45%] md:h-[50%]"/></a>
+            <a href="mailto:your-email@gmail.com" class="md:w-[45px] md:h-[45px] w-[37px] h-[37px] rounded-[100%] bg-[white] flex justify-center items-center"><img src="{% static 'logo/linkedin.jpg' %}" class=" w-[auto] h-[45%] md:h-[50%]"/></a>
+            <a href="mailto:your-email@gmail.com" class="md:w-[45px] md:h-[45px] w-[37px] h-[37px] rounded-[100%] bg-[white] flex justify-center items-center"><img src="{% static 'logo/telegram.jpg' %}" class=" w-[auto] h-[45%] md:h-[50%]"/></a>
+        </div>
 
-    function hideIcons(event) {
-      const item = event.currentTarget.querySelector(".show");
-      item.classList.add("hidden");
-      const itemBorder=event.currentTarget.querySelector('.border-green')
-      itemBorder.classList.remove('border-green')
-      itemBorder.classList.add('border')
-    }
-  </script>
+        <div class='w-[100%] h-[44%] md:h-[23%]  py-1 md:py-3 flex justify-center flex-col text-center'>
+           <p class="font-[yekanBakhtBold] text-[31px] text-[white]">علی زمانیان</p>
+           <p class="font-[yekanBakht] text-[19px] text-[white]"> Full-Stack Developer </p>
+        </div>
+
+    </div>
+
+</div>
+
+
+
+
+
+</div>
+
+
+</div>
